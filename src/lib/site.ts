@@ -92,5 +92,7 @@ export const site = {
     { cat: 'Ecosistema', title: 'Madrid Startup Bar', desc: 'Comunidad y eventos del ecosistema madrileño.', url: 'https://www.instagram.com/madridstartupbar/' },
     { cat: 'Guías', title: 'Cómo validar una idea en una semana', desc: 'Plantilla que usamos en los talleres de Start.', url: '#' },
     { cat: 'Guías', title: 'Plantilla de pitch de 3 minutos', desc: 'Estructura, timing y errores habituales.', url: '#' },
+    { cat: 'Financiación', title: 'ENISA · Jóvenes Emprendedores', desc: 'Préstamos participativos para proyectos de menores de 40 años, sin aval.', url: 'https://www.enisa.es' },
+    { cat: 'Ecosistema', title: 'South Summit', desc: 'Uno de los grandes encuentros de startups e inversores de Europa, en Madrid.', url: 'https://www.southsummit.co' },
   ],
 };
