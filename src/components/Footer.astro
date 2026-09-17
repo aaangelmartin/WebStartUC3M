@@ -11,7 +11,7 @@ const cols = [
   <div class="container-x grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
     <div class="flex flex-col gap-3">
       <Logo tone="white" size={64} full />
-      <a class="font-mono text-sm text-lavender hover:text-white" href={`mailto:${site.email}`}>{site.email}</a>
+      <a class="font-mono text-sm text-lavender hover:text-white" href={`mailto:${site.email}`} data-cms="site.email">{site.email}</a>
       <form id="newsletter" class="mt-6 flex max-w-sm gap-2" data-form="newsletter" action="/api/forms" method="post">
         <input type="hidden" name="form" value="newsletter" />
         <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
@@ -28,7 +28,7 @@ const cols = [
     ))}
   </div>
   <div class="container-x border-t border-cobalt-deep py-6 font-mono text-[11px] tracking-wider text-lavender/70">
-    © 2026 START UC3M · ASOCIACIÓN DE EMPRENDEDORES DE LA UNIVERSIDAD CARLOS III DE MADRID · <a href="/contacto" class="hover:text-white">CONTACTO</a>
+    © 2026 START UC3M · ASOCIACIÓN DE EMPRENDEDORES DE LA UNIVERSIDAD CARLOS III DE MADRID · <a href="/contacto" class="hover:text-white">CONTACTO</a> · <a href="/admin" class="hover:text-white">PANEL</a>
   </div>
 </footer>
 <script>
