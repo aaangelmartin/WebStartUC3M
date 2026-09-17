@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { SUBMISSIONS_FILE } from '../../lib/submissions';
+import { logConfirmationEmail } from '../../lib/mail';
 
 export const prerender = false;
 
@@ -22,6 +23,7 @@ export const POST: APIRoute = async ({ request }) => {
   const list = await readFile(FILE, 'utf8').then(JSON.parse).catch(() => []);
   list.push({ id: crypto.randomUUID(), form, at: new Date().toISOString(), data });
   await writeFile(FILE, JSON.stringify(list, null, 2));
+  logConfirmationEmail(email, form, data);
   return json({ ok: true });
 };
 

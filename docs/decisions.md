@@ -10,3 +10,6 @@
 - **Astro 7 + Tailwind v4 + GSAP + Lenis**, salida estática con adaptador Node solo para `/api/forms`.
 - "CMS" = markdown en `src/content` + `src/lib/site.ts`. Un panel (Keystatic/Payload) queda para más adelante (#8) si hace falta.
 - Formularios propios (Start, evento, patrocinio, contacto, newsletter) guardan en `data/submissions.json`; sustituyen a Tally y Luma.
+
+## 2026-09-17 · Email de confirmación
+- Sin SMTP/Mailpit por ahora: cada envío registra en consola (dev) el email de confirmación que se mandaría (`src/lib/mail.ts`), como contempla el issue #9. Se sustituye por un SMTP local el día que haga falta probar la entrega real.

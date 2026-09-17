@@ -24,6 +24,7 @@ npm run dev        # http://localhost:4321
 | Nav, footer, formulario, cabecera de página, pista de podcasts | `src/components/` |
 | Animaciones (reveal, split de titulares, scroll horizontal de podcasts, contadores) | `src/lib/motion.ts` |
 | Envíos de formularios | `data/submissions.json` (gitignored) via `src/pages/api/forms.ts` |
+| Email de confirmación | Se registra en consola en dev (`src/lib/mail.ts`); sin SMTP real todavía, ver `docs/decisions.md` |
 | Diseño en Pencil | `../startuc3m.pen` (fuera del repo por ahora) |
 | Investigación previa | `docs/research.md` |
 
