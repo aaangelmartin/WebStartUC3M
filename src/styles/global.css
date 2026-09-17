@@ -51,6 +51,8 @@ body { @apply bg-paper text-ink font-sans antialiased; }
 
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; }
+  header.sticky { transition: none; }
+  header.sticky.nav-hidden { transform: none; }
 }
 
 /* Loader de entrada: cortina cobalto con el logo real. Animación 100 % CSS
@@ -67,6 +69,14 @@ html.is-loading { overflow: hidden; }
 
 /* Parallax suave en imágenes (data-parallax) */
 [data-parallax] { will-change: transform; }
+
+/* Nav: se oculta al hacer scroll hacia abajo (clase que pone motion.ts) */
+header.sticky { transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+header.sticky.nav-hidden { transform: translateY(-100%); }
+
+/* Cortina de imagen (data-img-reveal) y stagger (data-stagger): el estado inicial
+   lo pone GSAP, así el contenido es visible si el JS no corre. */
+[data-img-reveal] { will-change: clip-path; }
 
 /* Ticker de logos */
 .ticker { display: flex; align-items: center; gap: 3rem; width: max-content; animation: ticker 22s linear infinite; }

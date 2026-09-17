@@ -30,6 +30,9 @@ const eventos = defineCollection({
     agenda: z.array(z.object({ time: z.string(), title: z.string(), desc: z.string() })).default([]),
     tags: z.array(z.string()).default([]),
     external: z.string().optional(),
+    image: z.string().optional(),
+    highlights: z.array(z.string()).default([]),
+    edition: z.string().optional(),
   }),
 });
 

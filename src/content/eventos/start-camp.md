@@ -9,5 +9,8 @@ status: abierto
 seats: 40
 sponsors: []
 tags: ["2 días", "Plazas limitadas", "Ediciones anteriores sold out"]
+image: "/media/location.jpg"
+edition: "Curso 2026/27"
+highlights: ["2 días", "40 plazas", "Mentores y demos"]
 ---
 El formato más intenso del curso: dos días de trabajo en equipo, mentores y demos finales.

@@ -13,6 +13,9 @@ agenda:
   - { time: "18:00", title: "Arranque", desc: "Bienvenida de Start y reto de la tarde. Qué es Start, qué hacemos este año y cuál es el reto." }
   - { time: "18:30", title: "Build time", desc: "Equipos de 3, herramientas de IA y mentores dando vueltas por las mesas. Créditos de Lovable incluidos." }
   - { time: "21:00", title: "Demos + sangriada", desc: "Enseñamos lo construido, premios sorpresa y nos quedamos de sangriada para seguir la noche." }
+image: "/media/starter.jpg"
+edition: "Curso 2026/27"
+highlights: ["60 plazas", "Equipos de 3", "Créditos de Lovable"]
 ---
 Abrimos el curso construyendo. Vienes con una idea (o sin ella), te juntas con un equipo y sales con algo que funciona y se puede enseñar. Sin saber programar y sin presentaciones interminables: solo build. Y de paso descubres quiénes somos y cómo se entra en Start.
 

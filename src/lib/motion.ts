@@ -28,6 +28,14 @@ export function initMotion() {
     ScrollTrigger.create({ trigger: el, start: 'top 85%', once: true, onEnter: () => el.classList.add('is-in') });
   });
 
+  // Auto-split: todo h1/h2.display sin data-split (fuera de la pista de podcasts, máx. 12 palabras)
+  document.querySelectorAll<HTMLElement>('h1.display:not([data-split]), h2.display:not([data-split])').forEach((el) => {
+    if (el.closest('[data-podcast-pin]')) return;
+    if (el.children.length) return; // solo texto plano
+    if (el.textContent!.trim().split(/\s+/).length > 12) return;
+    el.setAttribute('data-split', '');
+  });
+
   // Titulares grandes: entran letra a letra por palabras
   document.querySelectorAll<HTMLElement>('[data-split]').forEach((el) => {
     const words = el.textContent!.trim().split(/\s+/);
@@ -57,6 +65,46 @@ export function initMotion() {
     const amount = Number(el.dataset.parallax || 12);
     gsap.fromTo(el, { yPercent: -amount }, { yPercent: amount, ease: 'none', scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
   });
+
+  // Stagger: los hijos directos entran escalonados (se ocultan solo cuando ya corre el JS)
+  document.querySelectorAll<HTMLElement>('[data-stagger]').forEach((el) => {
+    const items = Array.from(el.children) as HTMLElement[];
+    if (!items.length) return;
+    gsap.set(items, { y: 24, opacity: 0 });
+    ScrollTrigger.create({ trigger: el, start: 'top 85%', once: true, onEnter: () =>
+      gsap.to(items, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', stagger: 0.08, clearProps: 'transform' }) });
+  });
+
+  // Imágenes: cortina clip-path de abajo a arriba
+  document.querySelectorAll<HTMLElement>('[data-img-reveal]').forEach((el) => {
+    gsap.set(el, { clipPath: 'inset(0 0 100% 0)' });
+    ScrollTrigger.create({ trigger: el, start: 'top 85%', once: true, onEnter: () =>
+      gsap.to(el, { clipPath: 'inset(0 0 0% 0)', duration: 1, ease: 'power4.out', clearProps: 'clipPath' }) });
+  });
+
+  // Botones magnéticos (solo con puntero fino)
+  if (window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll<HTMLElement>('.btn').forEach((btn) => {
+      const max = 6;
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const dx = ((e.clientX - (r.left + r.width / 2)) / (r.width / 2)) * max;
+        const dy = ((e.clientY - (r.top + r.height / 2)) / (r.height / 2)) * max;
+        gsap.to(btn, { x: dx, y: dy, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+      });
+      btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)', overwrite: 'auto' }));
+    });
+  }
+
+  // Nav: se esconde al bajar, vuelve al subir
+  const header = document.querySelector<HTMLElement>('header.sticky');
+  if (header) {
+    ScrollTrigger.create({
+      start: 80, end: 'max',
+      onUpdate: (self) => header.classList.toggle('nav-hidden', self.direction === 1),
+      onLeaveBack: () => header.classList.remove('nav-hidden'),
+    });
+  }
 
   // Contadores
   document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {

@@ -38,6 +38,7 @@ export const site = {
     { name: 'RRHH', short: 'Las personas que forman Start', desc: 'Se encarga de las personas que forman Start. Elige a quién entra, acompaña a los nuevos durante sus primeros meses y organiza las formaciones del curso y las actividades internas que mantienen unido al equipo.' },
     { name: 'Partnerships', short: 'Las empresas que apoyan a Start', desc: 'Construye la relación con las empresas que apoyan a Start UC3M. Busca nuevos patrocinadores, negocia las condiciones de cada colaboración y mantiene el contacto con los socios a lo largo del curso.' },
     { name: 'Legal', short: 'El marco jurídico', desc: 'Se ocupa del marco jurídico de la asociación. Revisa los convenios con empresas y patrocinadores, mantiene al día los estatutos y se asegura de que cada actividad cumple con la normativa de la universidad.' },
+    { name: 'DTE', short: 'Desarrollo, tecnología y experiencia', desc: '[COPY] Diseña y construye los productos digitales de Start: la web, las herramientas internas y la experiencia de los eventos.' },
     { name: 'IT', short: 'Producto y web', desc: 'Construye y mantiene la web, las herramientas internas y todo lo que Start necesita para funcionar en digital.' },
   ],
   team: [
@@ -53,6 +54,9 @@ export const site = {
     { name: 'Pedro Rodríguez', photo: '/media/equipo/pedro_rodriguez.jpg', role: 'Responsable', dept: 'Partnerships', linkedin: 'https://www.linkedin.com/in/pedro-rodr%C3%ADguez-ramos-2bb75a292/' },
     { name: 'María Aguilar', photo: '', role: 'Asociada', dept: 'RRHH', linkedin: '' },
     { name: 'Gonzalo Torrijos', photo: '/media/equipo/gonzalo_torrijos.jpeg', role: 'Asociado', dept: 'Eventos', linkedin: 'https://www.linkedin.com/in/gonzalo-torrijos/' },
+    { name: 'Ángel Martín', photo: '', role: 'Futuro miembro', dept: 'DTE', linkedin: 'https://www.linkedin.com/in/aaangelmartin/' },
+    { name: 'Marco Barroso', photo: '', role: 'Futuro miembro', dept: 'DTE', linkedin: 'https://www.linkedin.com/in/marcoobarroso/' },
+    { name: 'Álvaro Carpintero', photo: '', role: 'Futuro miembro', dept: 'DTE', linkedin: 'https://www.linkedin.com/in/alvaarocl/' },
     { name: 'Pablo Juan', photo: '/media/equipo/pablo_juan.jpg', role: 'Asociado', dept: 'Legal', linkedin: 'https://www.linkedin.com/in/pablo-juan-conde/' },
   ],
   // { name, role: cargo + años (ej. "Presidenta 2022-23"), linkedin? } — pendiente de contenido real de RRHH

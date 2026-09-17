@@ -47,7 +47,7 @@ const fmtShort = (d: Date) => d.toLocaleDateString('es-ES', { day: '2-digit', mo
   <section class="bg-navy text-white">
     <div class="container-x py-24">
       <a href={`/eventos/${next.id}`} class="group grid gap-0 overflow-hidden rounded-brand bg-cobalt md:grid-cols-[1.1fr_1fr]" data-reveal>
-        <div class="relative aspect-[4/3] md:aspect-auto md:min-h-[480px]">
+        <div class="relative aspect-[4/3] md:aspect-auto md:min-h-[480px]" data-img-reveal>
           <img src={asset('/media/starter.jpg')} alt={next.data.title} class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
           <span class="eyebrow absolute left-4 top-4 rounded-full bg-navy/70 px-3 py-2 text-lavender backdrop-blur">Próximo evento</span>
         </div>
@@ -69,10 +69,10 @@ const fmtShort = (d: Date) => d.toLocaleDateString('es-ES', { day: '2-digit', mo
         <div><span class="eyebrow text-lavender">Eventos</span><h3 class="display mt-3 text-[clamp(28px,4vw,56px)]">Lo que organizamos_</h3></div>
         <a href="/eventos" class="btn btn-outline hidden text-white md:inline-flex">Ver calendario</a>
       </div>
-      <ul class="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
         {grid.map((e, i) => (
           <li data-reveal><a href={`/eventos/${e.id}`} class="group block">
-            <div class="relative aspect-[4/3] overflow-hidden rounded-brand bg-cobalt">
+            <div class="relative aspect-[4/3] overflow-hidden rounded-brand bg-cobalt" data-img-reveal>
               <img src={asset(['/media/location.jpg', '/media/home-banner.jpg', '/media/starter.jpg'][i % 3])} alt="" class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" loading="lazy" />
               <span class="display absolute bottom-3 left-4 text-4xl">{fmtShort(e.data.date)}<span class="ml-2 text-base font-normal text-lavender">{e.data.date.getFullYear()}</span></span>
               <span class="mono absolute right-3 top-3 rounded-full bg-navy/70 px-3 py-1.5 text-lavender backdrop-blur">{e.data.status === 'pasado' ? 'Pasado' : 'Abierto'}</span>
@@ -96,7 +96,7 @@ const fmtShort = (d: Date) => d.toLocaleDateString('es-ES', { day: '2-digit', mo
           <p class="mt-6 max-w-md text-lg leading-relaxed">Start UC3M nació en 2013 cuando seis alumnos de ADE se dieron cuenta de que en la universidad faltaba una iniciativa que conectara el talento técnico, de diseño y de negocio.</p>
           <a href="/equipo" class="btn btn-primary mt-8">Conoce al equipo <span class="font-mono">→</span></a>
         </div>
-        <div class="grid gap-6 sm:grid-cols-3">
+        <div class="grid gap-6 sm:grid-cols-3" data-stagger>
           {site.pillars.map((p, i) => (
             <div class="border-t-2 border-cobalt pt-5"><span class="eyebrow text-cobalt">0{i + 1}</span><h3 class="mt-2 text-2xl font-bold">{p.title}</h3><p class="mt-2 text-sm leading-relaxed opacity-80">{p.desc}</p></div>
           ))}
@@ -106,13 +106,13 @@ const fmtShort = (d: Date) => d.toLocaleDateString('es-ES', { day: '2-digit', mo
         <div class="relative aspect-[4/3] overflow-hidden rounded-brand" data-reveal>
           <img src={asset("/media/starter.jpg")} alt="Equipo de Start UC3M en un evento" class="absolute inset-0 h-[120%] w-full object-cover" data-parallax="8" />
         </div>
-        <ol class="border-t border-line" data-reveal>
+        <ol class="border-t border-line" data-stagger>
           {site.milestones.map((m) => (
             <li class="grid grid-cols-[80px_1fr] gap-6 border-b border-line py-5"><span class="display text-3xl text-cobalt">{m.year}</span><div><h3 class="text-xl font-bold">{m.title}</h3><p class="mt-1 text-sm opacity-80">{m.desc}</p></div></li>
           ))}
         </ol>
       </div>
-      <ul class="mt-16 grid border-t border-line sm:grid-cols-2 lg:grid-cols-4" data-reveal>
+      <ul class="mt-16 grid border-t border-line sm:grid-cols-2 lg:grid-cols-4" data-stagger>
         {site.departments.map((d) => (
           <li class="flex items-baseline gap-3 border-b border-line py-4 pr-6"><span class="text-lg font-bold text-cobalt">{d.name}</span><span class="text-sm opacity-70">{d.short}</span></li>
         ))}
@@ -144,7 +144,7 @@ const fmtShort = (d: Date) => d.toLocaleDateString('es-ES', { day: '2-digit', mo
         <div><span class="eyebrow text-cobalt">Blog</span><h2 class="display mt-3 text-[clamp(32px,4vw,56px)]">Lo último de la comunidad</h2></div>
         <a href="/blog" class="btn btn-outline hidden md:inline-flex">Ver todos los posts</a>
       </div>
-      <div class="mt-10 grid gap-8 md:grid-cols-3">
+      <div class="mt-10 grid gap-8 md:grid-cols-3" data-stagger>
         {posts.map((p, i) => (
           <a href={`/blog/${p.id}`} class="group">
             <div class="relative aspect-[16/10] overflow-hidden rounded-brand bg-cobalt"><img src={asset(['/media/home-banner.jpg', '/media/location.jpg', '/media/starter.jpg'][i])} alt="" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" /></div>
