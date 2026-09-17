@@ -5,7 +5,9 @@ import node from '@astrojs/node';
 
 // Todo se prerenderiza en estático salvo /api/* (formularios), que corre en Node.
 export default defineConfig({
-  site: 'https://www.startuc3m.es',
+  // En GitHub Pages la web cuelga de /WebStartUC3M (BASE_PATH lo pone el workflow).
+  site: process.env.SITE_URL ?? 'https://www.startuc3m.es',
+  base: process.env.BASE_PATH ?? '/',
   output: 'static',
   adapter: node({ mode: 'standalone' }),
   vite: { plugins: [tailwindcss()] },

@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/site';
 const { title, description = site.description, tone = 'light' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const fullTitle = title ? `${title} | Start UC3M` : 'Start UC3M | Asociación de emprendedores de la UC3M';
 ---
 <!doctype html>
@@ -14,7 +15,7 @@ const fullTitle = title ? `${title} | Start UC3M` : 'Start UC3M | Asociación de
     <meta name="theme-color" content="#2b3a91" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Start UC3M" />
@@ -27,6 +28,13 @@ const fullTitle = title ? `${title} | Start UC3M` : 'Start UC3M | Asociación de
     <Nav tone={tone} />
     <main><slot /></main>
     <Footer />
+    <script is:inline define:vars={{ base }}>
+      // Con base (GitHub Pages) los enlaces raíz "/x" pasan a "/WebStartUC3M/x".
+      if (base) document.querySelectorAll('a[href^="/"], form[action^="/"]').forEach((el) => {
+        const k = el.tagName === 'FORM' ? 'action' : 'href';
+        const v = el.getAttribute(k); if (v && !v.startsWith(base + '/')) el.setAttribute(k, base + v);
+      });
+    </script>
     <script>
       import { initMotion } from '../lib/motion';
       initMotion();

@@ -3,6 +3,7 @@
 import '../styles/global.css';
 import Logo from '../components/Logo.astro';
 import { site } from '../lib/site';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Links | Start UC3M</title><meta name="theme-color" content="#2b3a91" />
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet" /></head>
@@ -15,4 +16,5 @@ import { site } from '../lib/site';
     </ul>
     <div class="mt-auto flex justify-center gap-6 pt-12 text-sm font-semibold">{Object.entries(site.social).map(([k, v]) => <a href={v} class="capitalize underline-offset-4 hover:underline">{k}</a>)}</div>
   </main>
+  <script is:inline define:vars={{ base }}>if (base) document.querySelectorAll('a[href^="/"]').forEach((a) => a.setAttribute('href', base + a.getAttribute('href')));</script>
 </body></html>
