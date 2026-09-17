@@ -44,7 +44,12 @@ const ogImage = `${siteOrigin}${base}/brand/logo-full-cobalt.png`;
       <div class="mt-8 flex justify-center gap-6 pb-4 text-sm font-semibold">{Object.entries(site.social).map(([k, v]) => <a href={v} class="capitalize underline-offset-4 hover:underline">{k}</a>)}</div>
     </div>
   </main>
-  <script is:inline define:vars={{ base }}>if (base) document.querySelectorAll('a[href^="/"], form[action^="/"]').forEach((el) => { const k = el.tagName === 'FORM' ? 'action' : 'href'; const v = el.getAttribute(k); if (v && !v.startsWith(base + '/')) el.setAttribute(k, base + v); });</script>
+  <script is:inline define:vars={{ base }}>
+    if (base) { var fix = function (el) { var k = el.tagName === 'FORM' ? 'action' : 'href'; var v = el.getAttribute(k); if (v && v.charAt(0) === '/' && v.indexOf(base + '/') !== 0) el.setAttribute(k, base + v); };
+      document.querySelectorAll('a[href^="/"], form[action^="/"]').forEach(fix);
+      document.addEventListener('click', function (e) { var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null; if (a) fix(a); }, true);
+      document.addEventListener('submit', function (e) { if (e.target && e.target.tagName === 'FORM') fix(e.target); }, true); }
+  </script>
   <script>
     document.querySelectorAll<HTMLFormElement>('form[data-form="newsletter"]').forEach((form) => {
       form.addEventListener('submit', async (e) => {

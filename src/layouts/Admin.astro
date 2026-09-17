@@ -21,11 +21,20 @@ const nav = [
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <script is:inline define:vars={{ base }}>
       // Puerta de demo: sin sesión → login (excepto la propia página de login)
-      try { if (sessionStorage.getItem('cms:session') !== '1' && !location.pathname.replace(base, '').match(/^\/admin\/?$/)) location.replace(base + '/admin'); } catch (e) {}
+      try { if (location.search.indexOf('demo=1') > -1) sessionStorage.setItem('cms:session', '1'); if (sessionStorage.getItem('cms:session') !== '1' && !location.pathname.replace(base, '').match(/^\/admin\/?$/)) location.replace(base + '/admin'); } catch (e) {}
     </script>
   </head>
   <body class="bg-paper-2 text-ink">
     <script type="application/json" id="cms-seed" set:html={JSON.stringify(seed)} />
+    <script is:inline define:vars={{ base }}>
+      // Con base (GitHub Pages) los enlaces raíz "/x" pasan a "/WebStartUC3M/x": al cargar y en cada clic (enlaces generados por JS incluidos).
+      if (base) {
+        var fix = function (el) { var k = el.tagName === 'FORM' ? 'action' : 'href'; var v = el.getAttribute(k); if (v && v.charAt(0) === '/' && v.indexOf(base + '/') !== 0 && v !== base) el.setAttribute(k, base + v); };
+        document.querySelectorAll('a[href^="/"], form[action^="/"]').forEach(fix);
+        document.addEventListener('click', function (e) { var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null; if (a) fix(a); }, true);
+        document.addEventListener('submit', function (e) { var f = e.target; if (f && f.tagName === 'FORM') fix(f); }, true);
+      }
+    </script>
     <script>
       import '../lib/admin/store';
     </script>

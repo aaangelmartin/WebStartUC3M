@@ -57,11 +57,13 @@ const organizationJsonLd = {
     <main><slot /></main>
     <Footer />
     <script is:inline define:vars={{ base }}>
-      // Con base (GitHub Pages) los enlaces raíz "/x" pasan a "/WebStartUC3M/x".
-      if (base) document.querySelectorAll('a[href^="/"], form[action^="/"]').forEach((el) => {
-        const k = el.tagName === 'FORM' ? 'action' : 'href';
-        const v = el.getAttribute(k); if (v && !v.startsWith(base + '/')) el.setAttribute(k, base + v);
-      });
+      // Con base (GitHub Pages) los enlaces raíz "/x" pasan a "/WebStartUC3M/x": al cargar y en cada clic (enlaces generados por JS incluidos).
+      if (base) {
+        var fix = function (el) { var k = el.tagName === 'FORM' ? 'action' : 'href'; var v = el.getAttribute(k); if (v && v.charAt(0) === '/' && v.indexOf(base + '/') !== 0 && v !== base) el.setAttribute(k, base + v); };
+        document.querySelectorAll('a[href^="/"], form[action^="/"]').forEach(fix);
+        document.addEventListener('click', function (e) { var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null; if (a) fix(a); }, true);
+        document.addEventListener('submit', function (e) { var f = e.target; if (f && f.tagName === 'FORM') fix(f); }, true);
+      }
     </script>
     <script is:inline>
       // CMS local: textos editados en /admin (localStorage cms:site) se muestran en la web
