@@ -13,7 +13,7 @@ const cols = [
       <Logo tone="white" size={40} />
       <span class="text-[13px] font-light tracking-[0.2em] text-lavender">EMPRENDEDORES | UC3M</span>
       <a class="font-mono text-sm text-lavender hover:text-white" href={`mailto:${site.email}`}>{site.email}</a>
-      <form class="mt-6 flex max-w-sm gap-2" data-form="newsletter" action="/api/forms" method="post">
+      <form id="newsletter" class="mt-6 flex max-w-sm gap-2" data-form="newsletter" action="/api/forms" method="post">
         <input type="hidden" name="form" value="newsletter" />
         <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
         <input required type="email" name="email" placeholder="tu@alumnos.uc3m.es" class="w-full rounded-brand border border-cobalt bg-transparent px-3 py-2 text-sm placeholder:text-lavender/60" />

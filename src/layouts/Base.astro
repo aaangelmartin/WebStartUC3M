@@ -8,7 +8,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const fullTitle = title ? `${title} | Start UC3M` : 'Start UC3M | Asociación de emprendedores de la UC3M';
 ---
 <!doctype html>
-<html lang="es">
+<html lang="es" class="is-loading">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,6 +25,7 @@ const fullTitle = title ? `${title} | Start UC3M` : 'Start UC3M | Asociación de
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body class={tone === 'dark' ? 'bg-cobalt' : ''}>
+    <div class="loader" aria-hidden="true"><div class="loader-mark"><span class="inline-block overflow-hidden"><span class="inline-block">start</span></span><i></i></div><div class="loader-bar"></div></div>
     <Nav tone={tone} />
     <main><slot /></main>
     <Footer />
@@ -36,8 +37,8 @@ const fullTitle = title ? `${title} | Start UC3M` : 'Start UC3M | Asociación de
       });
     </script>
     <script>
-      import { initMotion } from '../lib/motion';
-      initMotion();
+      import { initLoader, initMotion } from '../lib/motion';
+      initLoader().then(initMotion);
     </script>
   </body>
 </html>

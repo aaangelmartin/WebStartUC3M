@@ -28,8 +28,8 @@ body { @apply bg-paper text-ink font-sans antialiased; }
 @layer components {
 /* Etiqueta mono con cursor _ */
 .eyebrow { @apply font-mono text-[12px] tracking-[0.12em] uppercase; }
-.eyebrow::after { content: "_"; animation: blink 1.1s steps(1) infinite; }
-@keyframes blink { 50% { opacity: 0; } }
+.eyebrow::after { content: "_"; }
+.mono { @apply font-mono text-[12px] tracking-[0.12em] uppercase; }
 
 /* Titulares */
 .display { @apply font-sans font-bold leading-[0.9] tracking-[-0.03em]; }
@@ -51,10 +51,20 @@ body { @apply bg-paper text-ink font-sans antialiased; }
 
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; }
-  .eyebrow::after { animation: none; }
 }
 
+/* Loader de entrada: cortina cobalto con el wordmark; se retira en ~1.2 s (una vez por sesión) */
+.loader { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--color-cobalt); color: white; }
+.loader-mark { font-size: clamp(56px, 10vw, 140px); font-weight: 700; letter-spacing: -0.04em; line-height: 1; display: inline-flex; align-items: flex-end; gap: 0.08em; }
+.loader-mark i { display: inline-block; width: 0.6em; height: 0.14em; background: currentColor; margin-bottom: 0.06em; transform-origin: left; }
+.loader-bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: white; }
+html.is-loading { overflow: hidden; }
+
+/* Parallax suave en imágenes (data-parallax) */
+[data-parallax] { will-change: transform; }
+
 /* Ticker de logos */
-.ticker { display: flex; gap: 4rem; width: max-content; animation: ticker 40s linear infinite; }
+.ticker { display: flex; align-items: center; gap: 5rem; width: max-content; animation: ticker 45s linear infinite; }
+.ticker img { height: 44px; width: auto; object-fit: contain; }
 @keyframes ticker { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .ticker { animation: none; } }

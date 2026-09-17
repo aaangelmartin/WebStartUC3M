@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import { site } from '../lib/site';
-const tiers = [['Partner', ['NomuLabs', 'Pitchless']], ['Gold', ['Lovable', 'Racks']], ['Colaboradores', ['TeamLabs', 'Madrid Startup Bar', 'Opinión20', 'ULVMAND']]];
+const tiers = ['Partner', 'Evento', 'Colaborador'].map((t) => [t === 'Evento' ? 'Patrocinio de evento' : t === 'Partner' ? 'Partners fijos' : 'Colaboradores', site.sponsors.filter((s) => s.tier === t)] as const);
 ---
 <Base title="Patrocinadores" tone="dark">
   <PageHead eyebrow="Patrocinadores · Curso 2026/27" title="Gracias a quienes lo hacen posible_" intro="Las empresas que apoyan a Start UC3M este curso." />
@@ -10,7 +10,7 @@ const tiers = [['Partner', ['NomuLabs', 'Pitchless']], ['Gold', ['Lovable', 'Rac
     {tiers.map(([t, list]) => (
       <div class="border-t border-line py-10" data-reveal>
         <span class="eyebrow text-cobalt">{t}</span>
-        <ul class="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-4">{(list as string[]).map((s) => <li class="grid aspect-[3/2] place-items-center rounded-brand bg-paper-2 text-2xl font-bold uppercase tracking-wider text-cobalt">{s}</li>)}</ul>
+        <ul class="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-4">{list.map((s) => <li class="grid aspect-[3/2] place-items-center rounded-brand bg-paper-2 p-8" data-reveal>{s.logo ? <img src={s.logo} alt={s.name} class="max-h-16 w-auto object-contain" loading="lazy" /> : <span class="text-2xl font-bold uppercase tracking-wider text-cobalt">{s.name}</span>}</li>)}</ul>
       </div>
     ))}
     <div class="mt-16 rounded-brand bg-cobalt p-10 text-white md:p-16"><h2 class="display text-[clamp(32px,4vw,56px)]">¿Quieres apoyar a Start?</h2><a href="/patrocina" class="btn btn-on-blue mt-6">Ver media kit <span class="font-mono">→</span></a></div>

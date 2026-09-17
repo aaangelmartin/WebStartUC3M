@@ -11,7 +11,7 @@ const input = `w-full rounded-brand border px-4 py-3 text-base outline-none focu
   <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
   {fields.map((f) => (
     <label class={`flex flex-col gap-2 ${f.full ? 'md:col-span-2' : ''}`}>
-      <span class="eyebrow">{f.label}{f.required && ' *'}</span>
+      <span class="mono">{f.label}{f.required && ' *'}</span>
       {f.type === 'textarea' ? (
         <textarea name={f.name} required={f.required} rows="5" placeholder={f.placeholder} class={input}></textarea>
       ) : f.type === 'select' ? (

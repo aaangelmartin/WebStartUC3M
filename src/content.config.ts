@@ -43,6 +43,7 @@ const podcast = defineCollection({
     date: z.coerce.date(),
     duration: z.string(),
     youtube: z.string().optional(),
+    youtubeId: z.string().optional(),
     spotify: z.string().optional(),
     cover: z.string().optional(),
   }),

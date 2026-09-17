@@ -4,6 +4,25 @@ import Lenis from 'lenis';
 
 // Base de motion: scroll suave (Lenis) + reveals + scroll horizontal de podcasts.
 // Todo se desactiva con prefers-reduced-motion.
+// Loader: cortina con el wordmark start_. Solo la primera vez por sesión.
+export function initLoader() {
+  const loader = document.querySelector<HTMLElement>('.loader');
+  if (!loader) return Promise.resolve();
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let seen = false;
+  try { seen = sessionStorage.getItem('start-loaded') === '1'; sessionStorage.setItem('start-loaded', '1'); } catch {}
+  if (reduced || seen || location.search.includes('noloader')) { loader.remove(); document.documentElement.classList.remove('is-loading'); return Promise.resolve(); }
+  return new Promise<void>((resolve) => {
+    const done = () => { loader.remove(); document.documentElement.classList.remove('is-loading'); resolve(); };
+    setTimeout(done, 3000); // seguro: nunca más de 3 s aunque falle la animación
+    const tl = gsap.timeline({ onComplete: done });
+    tl.from('.loader-mark span', { yPercent: 110, duration: 0.6, ease: 'power4.out' })
+      .from('.loader-mark i', { scaleX: 0, duration: 0.4, ease: 'power3.out' }, '-=0.2')
+      .to('.loader-bar', { width: '100%', duration: 0.5, ease: 'power2.inOut' }, '-=0.3')
+      .to(loader, { yPercent: -100, duration: 0.7, ease: 'power4.inOut' }, '+=0.1');
+  });
+}
+
 export function initMotion() {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) {
@@ -32,20 +51,15 @@ export function initMotion() {
     });
   });
 
-  // Podcasts: pista horizontal pineada que avanza con el scroll
-  const track = document.querySelector<HTMLElement>('[data-podcast-track]');
-  const pin = document.querySelector<HTMLElement>('[data-podcast-pin]');
-  if (track && pin) {
-    const distance = () => track.scrollWidth - window.innerWidth + 128;
-    gsap.to(track, {
-      x: () => -distance(), ease: 'none',
-      scrollTrigger: { trigger: pin, start: 'top top', end: () => `+=${distance()}`, pin: true, scrub: 0.6, invalidateOnRefresh: true },
-    });
-    // Los números de episodio se mueven a distinta velocidad (parallax)
-    track.querySelectorAll<HTMLElement>('[data-ep-number]').forEach((n) => {
-      gsap.to(n, { xPercent: -30, ease: 'none', scrollTrigger: { trigger: pin, start: 'top top', end: () => `+=${distance()}`, scrub: true } });
-    });
-  }
+  // Parallax constante al scroll en imágenes y números grandes
+  document.querySelectorAll<HTMLElement>('[data-parallax]').forEach((el) => {
+    const amount = Number(el.dataset.parallax || 12);
+    gsap.fromTo(el, { yPercent: -amount }, { yPercent: amount, ease: 'none', scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+
+  // Marcador de progreso del scroll en la nav
+  const bar = document.querySelector<HTMLElement>('[data-progress]');
+  if (bar) gsap.to(bar, { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
 
   // Contadores
   document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {

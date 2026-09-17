@@ -27,11 +27,12 @@ const stats = [['3.000', 'Estudiantes alcanzados por curso', 3000], ['3.000', 'S
 
   <section class="bg-navy text-white"><div class="container-x py-24">
     <span class="eyebrow text-lavender">Tiers</span>
-    <h2 class="display mt-3 text-[clamp(32px,5vw,72px)]">Elige cómo estar_</h2>
-    <div class="mt-12 grid gap-6 md:grid-cols-4">
+    <h2 class="display mt-3 text-[clamp(32px,5vw,72px)]">Partner fijo o por evento_</h2>
+    <p class="mt-4 max-w-xl text-lavender">Un partner fijo está dentro de Start todo el curso; el patrocinio de evento es puntual. Se pueden combinar.</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
       {site.tiers.map((t, i) => (
         <div class={`flex flex-col rounded-brand border p-8 ${i === 0 ? 'border-white bg-cobalt' : 'border-cobalt'}`} data-reveal>
-          <span class="eyebrow text-lavender">Tier 0{i + 1}</span>
+          <span class="eyebrow text-lavender">{t.tag}</span>
           <h3 class="mt-3 text-3xl font-bold">{t.name}</h3>
           <p class="mt-2 text-lavender">{t.desc}</p>
           <ul class="mt-6 flex flex-col gap-2 border-t border-white/20 pt-6 text-sm">{t.perks.map((p) => <li class="flex gap-2"><span class="font-mono text-lavender">_</span>{p}</li>)}</ul>
@@ -45,11 +46,11 @@ const stats = [['3.000', 'Estudiantes alcanzados por curso', 3000], ['3.000', 'S
   <section class="container-x py-24" data-reveal>
     <span class="eyebrow text-cobalt">Eventos patrocinables</span>
     <ul class="mt-6 border-t border-line">
-      {[['Buildathon', 'Septiembre · 60 personas · arranque de curso', 'Gold'], ['StartXperience', 'Abril · 300 personas · inversores e incubadoras', 'Partner / Gold'], ['Start Camp', 'Noviembre · 40 personas · 2 días', 'Gold / Silver'], ['Start_Talks (podcast)', 'Todo el curso · YouTube y Spotify', 'Partner']].map(([n, d, t]) => (
+      {[['Buildathon', 'Septiembre · 60 personas · arranque de curso', 'Evento'], ['StartXperience', 'Abril · 300 personas · inversores e incubadoras', 'Partner / Evento'], ['Start Camp', 'Noviembre · 40 personas · 2 días', 'Evento'], ['Start_Talks (podcast)', 'Todo el curso · YouTube y Spotify', 'Partner']].map(([n, d, t]) => (
         <li class="grid gap-2 border-b border-line py-6 md:grid-cols-[1fr_1.5fr_auto] md:items-center"><span class="text-3xl font-bold">{n}</span><span class="opacity-70">{d}</span><span class="eyebrow text-cobalt">{t}</span></li>
       ))}
     </ul>
-    <div class="mt-16"><span class="eyebrow text-cobalt">Ya confían en Start</span><ul class="mt-6 flex flex-wrap gap-x-10 gap-y-4 text-2xl font-bold uppercase tracking-wider">{site.sponsors.map((s) => <li>{s}</li>)}</ul></div>
+    <div class="mt-16"><span class="eyebrow text-cobalt">Ya confían en Start</span><ul class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">{site.sponsors.map((s) => <li class="grid aspect-[3/1.4] place-items-center rounded-brand bg-paper-2 p-6">{s.logo ? <img src={s.logo} alt={s.name} class="max-h-12 w-auto object-contain" loading="lazy" /> : <span class="text-xl font-bold uppercase tracking-wider text-cobalt">{s.name}</span>}</li>)}</ul></div>
   </section>
 
   <section id="contacto" class="bg-cobalt text-white"><div class="container-x grid gap-12 py-24 md:grid-cols-[1fr_1.4fr]">
@@ -58,7 +59,7 @@ const stats = [['3.000', 'Estudiantes alcanzados por curso', 3000], ['3.000', 'S
       { name: 'empresa', label: 'Empresa', required: true },
       { name: 'nombre', label: 'Persona de contacto', required: true },
       { name: 'email', label: 'Email', type: 'email', required: true },
-      { name: 'interes', label: 'Interés', type: 'select', options: ['Partner anual', 'Gold · un evento grande', 'Silver · un evento', 'Colaborador', 'Aún no lo sé'] },
+      { name: 'interes', label: 'Interés', type: 'select', options: ['Partner fijo', 'Patrocinio de un evento', 'Colaborador (en especie)', 'Aún no lo sé'] },
       { name: 'mensaje', label: 'Mensaje', type: 'textarea', full: true, placeholder: 'Cuéntanos qué buscáis' },
     ]} />
   </div></section>
