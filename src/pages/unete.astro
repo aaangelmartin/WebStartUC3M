@@ -3,17 +3,17 @@ import { asset } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import Form from '../components/Form.astro';
 import { site } from '../lib/site';
-// [COPY] Álvaro revisa; la estructura la fija Ángel
+// Tres puertas de entrada a Start: eventos, comunidad, equipo.
 const ways = [
-  { t: 'Ven a los eventos', d: 'Buildathon, hackathones, StartXperience, Start Camp. Abiertos a toda la UC3M, sin ser socio.', img: '/media/starter.jpg', cta: ['Ver eventos', '/eventos'] },
-  { t: 'Entra en la comunidad', d: 'Newsletter, grupo y podcast: entérate de todo lo que pasa en el ecosistema desde dentro.', img: '/media/location.jpg', cta: ['Suscribirme', '#newsletter'] },
+  { t: 'Ven a los eventos', d: 'Buildathon, hackathones, StartXperience, Start Camp. Abiertos a toda la UC3M, sin ser socio.', img: '/media/equipo/gonzalo_torrijos.jpeg', cta: ['Ver eventos', '/eventos'] },
+  { t: 'Entra en la comunidad', d: 'Newsletter, grupo y podcast: entérate de todo lo que pasa en el ecosistema desde dentro.', img: '/media/equipo/maria_martin.jpg', cta: ['Suscribirme', '#newsletter'] },
   { t: 'Forma parte de Start', d: 'Únete a un departamento y organiza con nosotros. Es la forma de aprender construyendo.', img: '/media/equipo/alicia_gascon.jpg', cta: ['Apuntarme', '#formulario'] },
 ];
 const perks = ['Equipo multidisciplinar: ADE, ingenierías, derecho, diseño', 'Contacto directo con fundadores, inversores y empresas', 'Organizas eventos de 60 a 300 personas', 'Red de alumni que fundan, invierten y contratan', 'Formaciones internas cada curso', 'Y sí: sangriadas'];
 ---
 <Base title="Únete a Start" tone="dark">
   <section class="relative overflow-hidden bg-cobalt text-white">
-    <img src={asset('/media/starter.jpg')} alt="" class="absolute inset-0 h-full w-full object-cover object-[center_35%] opacity-70 mix-blend-luminosity" data-parallax="6" aria-hidden="true" />
+    <img src={asset('/media/mural-saramago.jpg')} alt="" class="absolute inset-0 h-full w-full object-cover object-[center_35%] opacity-70 mix-blend-luminosity" data-parallax="6" aria-hidden="true" />
     <div class="absolute inset-0 bg-gradient-to-b from-cobalt/30 via-cobalt/60 to-cobalt"></div>
     <div class="container-x relative pb-16 pt-24">
       <span class="eyebrow text-lavender">Únete · Curso {site.course}</span>
@@ -29,6 +29,29 @@ const perks = ['Equipo multidisciplinar: ADE, ingenierías, derecho, diseño', '
     </div>
   </a>
 
+  <section class="container-x grid gap-12 py-24 md:grid-cols-[1fr_1.4fr]">
+    <div data-reveal>
+      <span class="eyebrow text-cobalt">Departamentos</span>
+      <h2 class="display mt-3 text-[clamp(32px,4vw,56px)] text-cobalt" data-split>Dónde encajas_</h2>
+      <ul class="mt-6 border-t border-line">{site.departments.map((d) => <li class="border-b border-line py-3"><span class="font-bold">{d.name}</span> <span class="text-sm opacity-70">· {d.short}</span></li>)}</ul>
+    </div>
+    <div id="formulario" class="scroll-mt-20 rounded-brand bg-cobalt p-8 text-white md:p-12">
+      <span class="eyebrow text-lavender">Proceso de entrada</span>
+      <h2 class="display mt-3 text-[clamp(28px,3.5vw,48px)]">Quiero entrar en Start_</h2>
+      <ol class="mt-6 flex flex-col gap-2 text-lavender">
+        {['Vienes al Buildathon y nos conoces trabajando', 'Hablamos de los departamentos y de qué te encaja', 'Rellenas esto y te escribimos'].map((s, i) => <li class="flex gap-3"><span class="font-mono">0{i + 1}_</span>{s}</li>)}
+      </ol>
+      <div class="mt-8">
+        <Form name="unete" dark submit="Apuntarme a Start" fields={[
+          { name: 'nombre', label: 'Nombre y apellidos', required: true },
+          { name: 'email', label: 'Email UC3M', type: 'email', required: true, placeholder: 'tu@alumnos.uc3m.es' },
+          { name: 'grado', label: 'Grado y curso', required: true, placeholder: 'Ingeniería Informática · 2º' },
+          { name: 'departamento', label: 'Departamento que te interesa', type: 'select', options: ['No lo sé aún', ...site.departments.map((d) => d.name)] },
+          { name: 'motivo', label: '¿Por qué quieres entrar en Start?', type: 'textarea', full: true, required: true },
+        ]} />
+      </div>
+    </div>
+  </section>
   <section class="container-x py-20">
     <div class="grid gap-8 md:grid-cols-3" data-stagger>
       {ways.map((w, i) => (
@@ -53,27 +76,4 @@ const perks = ['Equipo multidisciplinar: ADE, ingenierías, derecho, diseño', '
     </ul>
   </div></section>
 
-  <section class="container-x grid gap-12 py-24 md:grid-cols-[1fr_1.4fr]">
-    <div data-reveal>
-      <span class="eyebrow text-cobalt">Departamentos</span>
-      <h2 class="display mt-3 text-[clamp(32px,4vw,56px)] text-cobalt" data-split>Dónde encajas_</h2>
-      <ul class="mt-6 border-t border-line">{site.departments.map((d) => <li class="border-b border-line py-3"><span class="font-bold">{d.name}</span> <span class="text-sm opacity-70">· {d.short}</span></li>)}</ul>
-    </div>
-    <div id="formulario" class="rounded-brand bg-cobalt p-8 text-white md:p-12" data-reveal>
-      <span class="eyebrow text-lavender">Proceso de entrada</span>
-      <h2 class="display mt-3 text-[clamp(28px,3.5vw,48px)]">Quiero entrar en Start_</h2>
-      <ol class="mt-6 flex flex-col gap-2 text-lavender">
-        {['Vienes al Buildathon y nos conoces trabajando', 'Hablamos de los departamentos y de qué te encaja', 'Rellenas esto y te escribimos'].map((s, i) => <li class="flex gap-3"><span class="font-mono">0{i + 1}_</span>{s}</li>)}
-      </ol>
-      <div class="mt-8">
-        <Form name="unete" dark submit="Apuntarme a Start" fields={[
-          { name: 'nombre', label: 'Nombre y apellidos', required: true },
-          { name: 'email', label: 'Email UC3M', type: 'email', required: true, placeholder: 'tu@alumnos.uc3m.es' },
-          { name: 'grado', label: 'Grado y curso', required: true, placeholder: 'Ingeniería Informática · 2º' },
-          { name: 'departamento', label: 'Departamento que te interesa', type: 'select', options: ['No lo sé aún', ...site.departments.map((d) => d.name)] },
-          { name: 'motivo', label: '¿Por qué quieres entrar en Start?', type: 'textarea', full: true, required: true },
-        ]} />
-      </div>
-    </div>
-  </section>
 </Base>

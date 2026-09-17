@@ -65,18 +65,18 @@ export const site = {
     { name: 'Patrocinio de evento', tag: 'Por evento', desc: 'Un evento concreto con tu naming, tu producto y tu gente dentro.', perks: ['Naming ("Buildathon × Tu marca")', 'Logo en cartelería, ficha y redes del evento', 'Charla, taller o reto propio', 'Perfiles de los asistentes que lo autoricen'] },
     { name: 'Colaborador', tag: 'En especie', desc: 'Producto, espacio, créditos o mentores.', perks: ['Logo en la ficha del evento', 'Agradecimiento en redes'] },
   ],
-  // [COPY] hitos para "Quiénes somos" — Álvaro revisa textos; Ángel fija el diseño
+  // Hitos para "Quiénes somos"
   milestones: [
     { year: '2013', title: 'Nace Start', desc: 'Seis alumnos de ADE crean la asociación para conectar talento técnico, de diseño y de negocio.' },
-    { year: '2015', title: 'Alternativa Emprender', desc: '[COPY] Tres ediciones del evento de referencia con ponencias y talleres.' },
-    { year: '2019', title: 'Hack On Business', desc: '[COPY] Hackathon que junta a business con ingenieros en equipos multidisciplinares.' },
-    { year: '2024', title: 'StartXperience', desc: '[COPY] Un día con startups pre-seed, inversores e incubadoras del ecosistema madrileño.' },
-    { year: '2026', title: 'Buildathon y podcast', desc: '[COPY] Arrancamos el curso construyendo y lanzamos Start_Talks.' },
+    { year: '2015', title: 'Alternativa Emprender', desc: 'Tres ediciones del evento que trajo a Madrid a emprendedores que estaban triunfando, con ponencias y talleres para toda la universidad.' },
+    { year: '2019', title: 'Hack On Business', desc: 'El hackathon que junta a estudiantes de negocio con ingenieros para formar equipos multidisciplinares y construir en un fin de semana.' },
+    { year: '2024', title: 'StartXperience', desc: 'Un día entero con startups pre-seed, inversores, lanzaderas e incubadoras: todo el ecosistema emprendedor de Madrid en un mismo sitio.' },
+    { year: '2026', title: 'Buildathon y podcast', desc: 'Arrancamos el curso construyendo prototipos con IA en una tarde y consolidamos StartTheWeek, nuestro podcast con fundadores e inversores.' },
   ],
   pillars: [
-    { title: 'Eventos', desc: '[COPY] Buildathon, hackathones, StartXperience, Start Camp: formatos para construir, no para escuchar.' },
-    { title: 'Comunidad', desc: '[COPY] Más de 3.000 estudiantes, alumni que fundan e invierten, y empresas que apoyan.' },
-    { title: 'Proyectos', desc: '[COPY] Acompañamos a los equipos que quieren sacar su proyecto adelante desde la universidad.' },
+    { title: 'Eventos', desc: 'Buildathon, hackathones, StartXperience, Start Camp: formatos pensados para construir, no para escuchar.' },
+    { title: 'Comunidad', desc: 'Más de 3.000 estudiantes, alumni que hoy fundan e invierten, y empresas que apoyan cada curso.' },
+    { title: 'Proyectos', desc: 'Acompañamos a los equipos que quieren sacar su proyecto adelante sin esperar a terminar la carrera.' },
   ],
   links: [
     { label: 'Apuntarme al Buildathon', href: '/eventos/buildathon-pitchless-nomulabs', featured: true },

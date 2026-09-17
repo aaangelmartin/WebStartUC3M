@@ -14,7 +14,8 @@ const fmt = (d: Date) => d.toLocaleDateString('es-ES', { weekday: 'long', day: '
 const open = e.data.status === 'abierto';
 const soldOut = e.data.status === 'sold-out';
 const past = e.data.status === 'pasado';
-const image = asset(e.data.image ?? '/media/starter.jpg');
+const raw = e.data.image ?? '/media/starter.jpg';
+const image = raw.startsWith('http') ? raw : asset(raw);
 const sponsorLogos = e.data.sponsors.map((n) => site.sponsors.find((s) => s.name.toLowerCase() === n.toLowerCase()) ?? { name: n });
 const icsHref = icsDataHref(eventToIcs({ title: e.data.title, description: e.data.subtitle, location: e.data.place, date: e.data.date, time: e.data.time }));
 const eventJsonLd = {

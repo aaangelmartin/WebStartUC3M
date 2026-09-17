@@ -10,13 +10,12 @@ const season = (e: (typeof all)[number]) => e.data.edition?.replace(/ · .*$/, '
 const groups = [...new Set(past.map(season))].map((s) => [s, past.filter((e) => season(e) === s)] as const);
 const fmt = (d: Date) => d.toLocaleDateString('es-ES', { day: '2-digit', month: 'short' }).toUpperCase().replace('.', '');
 const fmtLong = (d: Date) => d.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
-const fallback = ['/media/starter.jpg', '/media/location.jpg', '/media/home-banner.jpg'];
-const img = (e: (typeof all)[number], i = 0) => asset(e.data.image ?? fallback[i % 3]);
+const img = (e: (typeof all)[number], _i = 0) => { const r = e.data.image ?? '/media/starter.jpg'; return r.startsWith('http') ? r : asset(r); };
 ---
 <Base title="Eventos" description="Buildathon, hackathones, StartXperience, Start Camp. Todo lo que organiza Start UC3M, con inscripción propia." tone="dark">
   <!-- HERO con imagen fundida -->
   <section class="relative overflow-hidden bg-cobalt text-white">
-    <img src={asset('/media/home-banner.jpg')} alt="" class="absolute inset-0 h-full w-full object-cover object-[center_35%] opacity-70 mix-blend-luminosity" data-parallax="6" aria-hidden="true" />
+    <img src={asset('/media/campus-pdt-1.jpg')} alt="" class="absolute inset-0 h-full w-full object-cover object-[center_35%] opacity-70 mix-blend-luminosity" data-parallax="6" aria-hidden="true" />
     <div class="absolute inset-0 bg-gradient-to-b from-cobalt/30 via-cobalt/60 to-cobalt"></div>
     <div class="container-x relative flex min-h-[70vh] flex-col justify-end pb-16 pt-24">
       <span class="eyebrow text-lavender">Eventos · Curso 2026/27</span>

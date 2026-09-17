@@ -96,15 +96,6 @@ export function initMotion() {
     });
   }
 
-  // Nav: se esconde al bajar, vuelve al subir
-  const header = document.querySelector<HTMLElement>('header.sticky');
-  if (header) {
-    ScrollTrigger.create({
-      start: 80, end: 'max',
-      onUpdate: (self) => header.classList.toggle('nav-hidden', self.direction === 1),
-      onLeaveBack: () => header.classList.remove('nav-hidden'),
-    });
-  }
 
   // Contadores
   document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {

@@ -3,7 +3,7 @@ title: "Cómo entrar en Start: proceso, departamentos y FAQs"
 excerpt: "Qué buscamos, cómo es el proceso de entrada y qué hace cada uno de los ocho departamentos."
 date: 2026-09-03
 category: Comunidad
-cover: "/media/location.jpg"
+cover: "https://img.youtube.com/vi/CZ7VaZYj6JM/hqdefault.jpg"
 ---
 Cada septiembre nos llega la misma pregunta por Instagram: "¿cómo se entra en Start?". Aquí va la respuesta completa.
 
@@ -18,7 +18,7 @@ Un starter no es solo alguien que forma parte de Start. Es alguien que aporta id
 1. **Vienes al Buildathon** y nos conoces trabajando. Es la forma más fácil de saber si esto es para ti.
 2. **Hablamos de los departamentos** y de cuál te encaja. Puedes tener claro que quieres Eventos o no tener ni idea; las dos cosas valen.
 3. **Rellenas el formulario** de [Únete](/unete) y te escribimos para una conversación corta con RRHH.
-4. [COPY] Si entras, los primeros meses vas acompañado por alguien del departamento hasta que sabes qué se espera de ti.
+4. Si entras, los primeros meses vas acompañado por alguien del departamento hasta que sabes qué se espera de ti.
 
 ## Los departamentos
 
@@ -33,7 +33,7 @@ Un starter no es solo alguien que forma parte de Start. Es alguien que aporta id
 
 ## FAQs
 
-**¿Hay que pagar cuota?** [COPY] No.
-**¿Cuánto tiempo hay que dedicar?** [COPY] Depende del departamento y del mes; en semanas de evento, más. Lo normal es una reunión semanal y trabajo propio.
+**¿Hay que pagar cuota?** No. Entrar en Start no cuesta dinero; lo que pedimos es tiempo y ganas.
+**¿Cuánto tiempo hay que dedicar?** Depende del departamento y del mes; en semanas de evento, más. Lo normal es una reunión semanal y trabajo propio.
 **¿Puedo entrar si estoy en primero?** Sí. De hecho, cuanto antes mejor.
 **¿Y si estoy de Erasmus el segundo cuatrimestre?** Cuéntanoslo en la conversación y lo organizamos.

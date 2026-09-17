@@ -7,9 +7,9 @@ place: "Campus de Getafe"
 type: "Evento de referencia"
 status: pasado
 edition: "Histórico · 1ª edición"
-image: "/media/location.jpg"
+image: "https://img.youtube.com/vi/46K8yZxjU8Y/hqdefault.jpg"
 sponsors: []
 tags: ["Ponencias", "Talleres"]
-highlights: ["[COPY] Evento multitudinario", "[COPY] Ponentes emprendedores", "1ª edición"]
+highlights: ["Evento multitudinario", "Ponentes emprendedores", "1ª edición"]
 ---
-[COPY] Alternativa Emprender fue el evento de referencia de los primeros años de Start: un evento multitudinario con ponencias y talleres en el que trajimos a numerosos emprendedores que por aquel momento estaban triunfando.
+Alternativa Emprender fue el evento de referencia de los primeros años de Start: una jornada multitudinaria con ponencias y talleres en la que trajimos a la universidad a emprendedores que en ese momento estaban triunfando. La primera edición sirvió para demostrar que emprendimiento y universidad no están reñidos.

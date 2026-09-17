@@ -3,7 +3,7 @@
 // Cada tarjeta es un vídeo de YouTube real: carátula del canal + play; al pulsar carga el iframe.
 import { getCollection } from 'astro:content';
 import { site } from '../lib/site';
-const eps = (await getCollection('podcast')).sort((a, b) => b.data.episode - a.data.episode).slice(0, 8);
+const eps = (await getCollection('podcast')).sort((a, b) => b.data.episode - a.data.episode).slice(0, 4);
 ---
 <section data-podcast-pin class="relative flex h-screen flex-col justify-center overflow-hidden bg-navy pt-[72px] text-white">
   <div class="container-x flex items-end justify-between gap-6">

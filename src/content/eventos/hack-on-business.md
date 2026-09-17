@@ -7,9 +7,9 @@ place: "Campus de Getafe"
 type: "Hackathon"
 status: pasado
 edition: "Histórico"
-image: "/media/home-banner.jpg"
+image: "https://img.youtube.com/vi/t_tXYHFpkJc/hqdefault.jpg"
 sponsors: []
 tags: ["Hackathon", "Equipos mixtos"]
-highlights: ["[COPY] 24 h de trabajo", "[COPY] Equipos business + ingeniería", "Jurado de empresas"]
+highlights: ["24 h de trabajo", "Equipos business + ingeniería", "Jurado de empresas"]
 ---
-[COPY] Hack On Business nació para juntar a estudiantes de negocio con ingenieros y formar equipos multidisciplinares capaces de sacar un proyecto adelante en un fin de semana.
+Hack On Business nació para juntar a estudiantes de negocio con ingenieros y formar equipos multidisciplinares alrededor de un reto real. Veinticuatro horas de trabajo, mentores de empresas colaboradoras y una demo final ante jurado. Fue el formato que demostró que en la UC3M hay talento técnico y de negocio con ganas de construir juntos.

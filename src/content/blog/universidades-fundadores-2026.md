@@ -3,7 +3,7 @@ title: "Berkeley, Stanford y las universidades que más fundadores producen (y q
 excerpt: "PitchBook publica su ranking 2026 de universidades por número de fundadores de startups con inversión. Lo que hacen distinto y lo que se puede replicar desde una asociación."
 date: 2026-09-08
 category: Comunidad
-cover: "/media/home-banner.jpg"
+cover: "https://img.youtube.com/vi/zRR67qJECpI/hqdefault.jpg"
 ---
 PitchBook acaba de publicar su ranking anual de universidades según el número de fundadores de startups respaldadas por capital riesgo que han salido de sus aulas. Los datos de 2026 dejan pocas sorpresas arriba y una lección clara para el resto.
 
@@ -23,6 +23,6 @@ No es (solo) dinero. Las universidades que más fundadores producen comparten tr
 
 ## Qué podemos copiar desde Start
 
-Ninguna de las tres depende de un presupuesto de Berkeley. Dependen de comunidad. Por eso el Buildathon abre el curso construyendo en equipos mixtos, por eso StartXperience sienta a estudiantes con inversores e incubadoras, y por eso estamos recuperando a las "viejas glorias" de Start para que vuelvan al campus. [COPY] Si quieres ayudarnos a acercar la UC3M a esa lista, la puerta está abierta.
+Ninguna de las tres depende de un presupuesto de Berkeley. Dependen de comunidad. Por eso el Buildathon abre el curso construyendo en equipos mixtos, por eso StartXperience sienta a estudiantes con inversores e incubadoras, y por eso estamos recuperando a las "viejas glorias" de Start para que vuelvan al campus. Si quieres ayudarnos a acercar la UC3M a esa lista, la puerta está abierta.
 
 Fuente: [PitchBook, University Rankings 2026](https://pitchbook.com/news/articles/pitchbook-university-rankings) · [Poets&Quants for Undergrads](https://poetsandquantsforundergrads.com/first-jobs/pitchbooks-2026-top-universities-ranked-by-number-of-undergrad-startup-founders/) · [America250](https://america250.org/news/america250-announces-winners-of-americas-startup-national-collegiate-competition/)

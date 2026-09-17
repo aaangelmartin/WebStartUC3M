@@ -7,7 +7,7 @@ export async function getStaticPaths() {
 }
 const { p } = Astro.props;
 const { Content } = await render(p);
-const cover = (c?: string) => (c && c.startsWith('http') ? c : asset(c ?? '/media/starter.jpg'));
+const cover = (c?: string) => (c && c.startsWith('http') ? c : asset(c ?? '/media/equipo/pedro_rodriguez.jpg'));
 const fmt = (d: Date) => d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 const more = (await getCollection('blog')).filter((x) => !x.data.draft && x.id !== p.id).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
 const articleJsonLd = {

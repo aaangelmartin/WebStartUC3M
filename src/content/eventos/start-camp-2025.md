@@ -7,12 +7,12 @@ place: "Campus Puerta de Toledo"
 type: "Campamento"
 status: pasado
 edition: "Curso 2025/26"
-image: "/media/home-banner.jpg"
+image: "/media/metro-pdt.jpg"
 sponsors: []
 tags: ["2 días", "Sold out"]
-highlights: ["Sold out", "[COPY] 40 asistentes", "[COPY] 10 proyectos"]
+highlights: ["Sold out", "40 asistentes", "10 proyectos"]
 agenda:
-  - { time: "Día 1", title: "Idea y equipo", desc: "[COPY] Formación de equipos, validación de problema y primeras entrevistas." }
-  - { time: "Día 2", title: "Prototipo y demo", desc: "[COPY] Construcción guiada por mentores y demos finales ante el jurado." }
+  - { time: "Día 1", title: "Idea y equipo", desc: "Formación de equipos, validación de problema y primeras entrevistas a usuarios." }
+  - { time: "Día 2", title: "Prototipo y demo", desc: "Construcción guiada por mentores y demos finales ante el resto del campamento." }
 ---
-[COPY] La edición 2025 del Start Camp colgó el cartel de sold out en menos de una semana. Dos días de trabajo en equipo, mentores y demos finales en el campus de Puerta de Toledo.
+La edición 2025 del Start Camp colgó el cartel de sold out en menos de una semana. Dos días de trabajo en equipo fuera de la rutina del campus: validar un problema, construir un primer prototipo y presentarlo ante mentores y compañeros. De aquí salieron diez proyectos y varios equipos que siguieron trabajando durante el curso.
