@@ -51,7 +51,7 @@ const organizationJsonLd = {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
-  <body class={tone === 'dark' ? 'bg-cobalt' : ''}>
+  <body>
     <div class="loader" aria-hidden="true"><img src={asset("/brand/logo-full-white.png")} alt="" width="816" height="342" /><div class="loader-bar"></div></div>
     <Nav tone={tone} />
     <main><slot /></main>
