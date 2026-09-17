@@ -1,4 +1,10 @@
 ---
+const ways = [
+  { t: 'Ven a los eventos', d: 'Buildathon, hackathones, StartXperience, Start Camp. Abiertos a toda la UC3M, sin ser socio.', img: '/media/equipo/gonzalo_torrijos.jpeg', cta: ['Ver eventos', '/eventos'] },
+  { t: 'Entra en la comunidad', d: 'Newsletter, grupo y podcast: entérate de todo lo que pasa en el ecosistema desde dentro.', img: '/media/equipo/maria_martin.jpg', cta: ['Suscribirme', '/#newsletter'] },
+  { t: 'Forma parte de Start', d: 'Únete a un departamento y organiza con nosotros. Es la forma de aprender construyendo.', img: '/media/equipo/alicia_gascon.jpg', cta: ['Apuntarme', '/unete'] },
+];
+const perks = ['Equipo multidisciplinar: ADE, ingenierías, derecho, diseño', 'Contacto directo con fundadores, inversores y empresas', 'Organizas eventos de 60 a 300 personas', 'Red de alumni que fundan, invierten y contratan', 'Formaciones internas cada curso', 'Y sí: sangriadas'];
 import Base from '../layouts/Base.astro';
 import { site } from '../lib/site';
 import { asset } from '../lib/url';
@@ -165,6 +171,38 @@ const faqs = [
       </section>
     );
   })}
+
+  <!-- SER STARTER (antes en /unete) -->
+  <section id="starter" class="scroll-mt-20 bg-paper text-ink">
+    <div class="container-x pt-24">
+      <span class="eyebrow text-cobalt">Ser starter</span>
+      <h2 class="display mt-3 text-[clamp(32px,5vw,72px)] text-cobalt">Hay un sitio para ti en Start_</h2>
+      <p class="mt-4 max-w-2xl text-lg">Vengas de la carrera que vengas y tengas idea o no. Puedes venir a un evento, seguir la comunidad o entrar en el equipo.</p>
+    </div>
+  <section class="container-x py-20">
+    <div class="grid gap-8 md:grid-cols-3" data-stagger>
+      {ways.map((w, i) => (
+        <a href={w.cta[1]} class="group flex flex-col" data-reveal>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-brand bg-cobalt" data-img-reveal><img src={asset(w.img)} alt="" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" /><span class="display absolute left-5 top-4 text-6xl text-white">0{i + 1}</span></div>
+          <h2 class="mt-5 text-3xl font-bold group-hover:underline">{w.t}</h2>
+          <p class="mt-2 opacity-80">{w.d}</p>
+          <span class="mono mt-4 text-cobalt">{w.cta[0]} →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="bg-navy text-white"><div class="container-x grid gap-12 py-24 md:grid-cols-[1fr_1.2fr] md:items-center">
+    <div data-reveal>
+      <span class="eyebrow text-lavender">Ser starter</span>
+      <h2 class="display mt-3 text-[clamp(32px,5vw,72px)]" data-split>Lo que te llevas_</h2>
+      <p class="mt-4 max-w-md text-lavender">Buscamos perfiles comprometidos, con mentalidad abierta y espíritu colaborativo. Cuanto más aportas, más crece tu recorrido dentro y fuera de Start.</p>
+    </div>
+    <ul class="grid gap-x-8 border-t border-cobalt sm:grid-cols-2" data-stagger>
+      {perks.map((p) => <li class="flex gap-3 border-b border-cobalt py-4"><span class="font-mono text-lavender">_</span><span class="text-lg">{p}</span></li>)}
+    </ul>
+  </div></section>
+    <div class="container-x py-16"><a href="/unete" class="btn btn-primary">Apuntarme a Start <span class="font-mono">→</span></a></div>
+  </section>
 
   <!-- FAQ -->
   <section class="bg-cobalt text-white">
