@@ -22,7 +22,7 @@
 }
 
 html { scroll-behavior: auto; }
-body { @apply bg-paper text-ink font-sans antialiased; }
+@layer base { body { @apply bg-paper text-ink font-sans antialiased; } }
 ::selection { background: var(--color-cobalt); color: white; }
 
 @layer components {
