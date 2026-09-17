@@ -53,12 +53,17 @@ body { @apply bg-paper text-ink font-sans antialiased; }
   [data-reveal] { opacity: 1; transform: none; }
 }
 
-/* Loader de entrada: cortina cobalto con el wordmark; se retira en ~1.2 s (una vez por sesión) */
-.loader { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--color-cobalt); color: white; }
-.loader-mark { font-size: clamp(56px, 10vw, 140px); font-weight: 700; letter-spacing: -0.04em; line-height: 1; display: inline-flex; align-items: flex-end; gap: 0.08em; }
-.loader-mark i { display: inline-block; width: 0.6em; height: 0.14em; background: currentColor; margin-bottom: 0.06em; transform-origin: left; }
-.loader-bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: white; }
+/* Loader de entrada: cortina cobalto con el logo real. Animación 100 % CSS
+   (no depende de JS ni de GSAP); un script inline la retira a los 1,6 s. */
+.loader { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--color-cobalt); animation: curtain 1.6s cubic-bezier(.76,0,.24,1) forwards; pointer-events: none; }
+.loader img { width: clamp(180px, 28vw, 380px); height: auto; animation: logo-in 0.7s cubic-bezier(.2,.7,.2,1) both; }
+.loader-bar { position: absolute; left: 0; bottom: 0; height: 3px; background: white; animation: bar 0.9s 0.3s cubic-bezier(.65,0,.35,1) both; }
+@keyframes logo-in { from { opacity: 0; transform: translateY(24px) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes bar { from { width: 0; } to { width: 100%; } }
+@keyframes curtain { 0%, 72% { transform: translateY(0); } 100% { transform: translateY(-100%); } }
+html.no-loader .loader { display: none; }
 html.is-loading { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .loader { display: none; } }
 
 /* Parallax suave en imágenes (data-parallax) */
 [data-parallax] { will-change: transform; }

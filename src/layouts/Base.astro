@@ -8,9 +8,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const fullTitle = title ? `${title} | Start UC3M` : 'Start UC3M | Asociación de emprendedores de la UC3M';
 ---
 <!doctype html>
-<html lang="es" class="is-loading">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // Cortina solo la primera vez por sesión (y nunca con ?noloader). Se retira sola a los 1,6 s.
+      (function () {
+        var skip = location.search.indexOf('noloader') > -1;
+        try { skip = skip || sessionStorage.getItem('start-loaded') === '1'; sessionStorage.setItem('start-loaded', '1'); } catch (e) {}
+        var h = document.documentElement;
+        if (skip) h.classList.add('no-loader'); else { h.classList.add('is-loading'); setTimeout(function () { var l = document.querySelector('.loader'); if (l) l.remove(); h.classList.remove('is-loading'); }, 1700); }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#2b3a91" />
     <title>{fullTitle}</title>
@@ -25,7 +34,7 @@ const fullTitle = title ? `${title} | Start UC3M` : 'Start UC3M | Asociación de
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body class={tone === 'dark' ? 'bg-cobalt' : ''}>
-    <div class="loader" aria-hidden="true"><div class="loader-mark"><span class="inline-block overflow-hidden"><span class="inline-block">start</span></span><i></i></div><div class="loader-bar"></div></div>
+    <div class="loader" aria-hidden="true"><img src={`${base}/brand/logo-full-white.png`} alt="" width="816" height="342" /><div class="loader-bar"></div></div>
     <Nav tone={tone} />
     <main><slot /></main>
     <Footer />
