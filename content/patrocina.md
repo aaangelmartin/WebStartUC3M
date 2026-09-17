@@ -3,28 +3,29 @@
 Issue #24. Audiencia: empresas y departamentos de marketing/RRHH que evalúan patrocinar. Referencia de tono: `docs/tono.md`, registro "empresa" (profesional, con datos, sin perder marca).
 Todo dato sin fuente en `docs/research.md` va marcado `[DATO: qué falta · quién lo tiene]`. Nada de esto se publica sin que Partnerships confirme cifras y precios.
 
+Start no busca una escalera de tiers. Busca 2-3 empresas que le acompañen toda la temporada, y deja una puerta barata para las que quieren probar con un evento antes de comprometerse. Todo el copy de esta página está escrito desde esa lógica, no desde un catálogo de precios.
+
 ---
 
 ## 1. Hero
 
 **Título**
-> Llega al talento de la UC3M antes que nadie.
+> Acompaña a Start toda la temporada, no un cartel.
 
 **Subtítulo**
-> Start conecta a las empresas con estudiantes que ya están construyendo. Patrocina un evento, una temporada, o entra como partner del año.
+> Cada curso, 2-3 empresas se quedan con Start de Buildathon a Start Camp. No es un logo en una lona: es estar en cada evento, delante del mismo talento, todo el año.
 
 CTA primario: "Ver dossier" (descarga PDF) — secundario: "Hablar con Partnerships" (ancla al formulario, issue #16).
 
-## 2. Por qué patrocinar Start
+## 2. Qué ofrece Start
 
-Tres bloques cortos, cada uno con una cifra:
+Dos ejes, no más.
 
-1. **Acceso directo a talento formado en construir, no solo en estudiar.**
-   Los starters llegan al Buildathon con un prototipo hecho en una tarde. Es la señal más rápida de quién sabe ejecutar.
-2. **Visibilidad ante una comunidad activa desde 2013.**
-   [DATO: nº de starters totales] han pasado por Start. Instagram ~3k seguidores, presencia constante en el campus Puerta de Toledo.
-3. **Marca asociada al ecosistema de innovación de Madrid.**
-   StartXperience reúne en un mismo día a startups pre-seed, empresas, inversores, lanzaderas y aceleradoras del ecosistema madrileño — el patrocinador está en la misma sala que ese ecosistema, no en un anuncio al margen.
+1. **Visibilidad durante todo el curso.**
+   Logo y mención en los eventos y canales de Start desde el primer Buildathon hasta el último Start Camp — no una aparición puntual, sino presencia sostenida mientras dura la temporada.
+2. **Contacto con talento, en persona.**
+   Los partners de temporada están presentes en Buildathon, Lovable Hackathon, StartXperience y Start Camp, y hablan con quien quieran de los starters que están construyendo ahí mismo.
+   **Start no cede CVs ni datos personales de ningún estudiante a los patrocinadores.** El valor es estar en la sala con el talento, no una base de datos para exportar. Quien quiera contactar a alguien, lo hace en el evento, cara a cara.
 
 ## 3. Audiencia y alcance (sección de datos, registro mono/cursor)
 
@@ -40,34 +41,28 @@ Tabla de cifras — formato ticker o bloque tipo "datos" en dark, como propone `
 | Años de trayectoria | 13 (desde 2013) |
 | Eventos por curso | [DATO: nº total anual · Eventos] |
 
-## 4. Tiers de patrocinio
+## 4. Oferta ancla — Partner de Temporada
 
-Estructura de 4 niveles, de mayor a menor compromiso. Importes **orientativos**, a validar con Partnerships antes de publicar — hoy no hay ninguna cifra de precio en `research.md`.
+2-3 plazas por curso. Sin exclusividad de sector, pero con plazas limitadas: cuando se cubren, se cubren.
 
-### Partner anual — [DATO: importe · Partnerships]
-- Logo en cabecera de todas las páginas y en el ticker de patrocinadores de la home.
-- Presencia en los 4 eventos de marca (Buildathon, Lovable Hackathon, StartXperience, Start Camp).
-- Acceso prioritario a CVs/talento antes de cada evento.
-- Mención en redes en cada evento del curso.
-- 1 sesión/charla propia al curso (formato a acordar).
+- Presencia en los 4 eventos de marca del curso (Buildathon, Lovable Hackathon, StartXperience, Start Camp).
+- Logo en la web y en los canales de Start durante toda la temporada.
+- Una sesión o charla propia, formato a acordar con la asociación.
+- Contacto con talento en persona en cada uno de los 4 eventos.
 
-### Gold — [DATO: importe]
-- Logo en la página de patrocinadores y en 2 eventos a elegir.
-- Stand o espacio de marca en esos 2 eventos.
-- Mención en redes en esos eventos.
+**Importe**: [DATO: importe · Partnerships].
 
-### Silver — [DATO: importe]
-- Logo en la página de patrocinadores.
-- Mención en redes en 1 evento.
+## 5. Rampa de entrada — Patrocinio de evento
 
-### Colaborador de evento — [DATO: importe o "en especie", p. ej. Lovable aporta créditos]
-- Patrocinio de un evento concreto, en dinero o en especie (créditos de producto, merchandising, catering).
+Para empresas que quieren empezar por un evento concreto antes de comprometerse a la temporada. En dinero o en especie — créditos de producto (como hace Lovable), catering, material (como Racks). Es formalizar algo que ya pasa de forma informal.
+
 - Logo en la ficha de ese evento.
-- Formato flexible: es la entrada natural para empresas pequeñas o startups que no pueden comprometerse a un tier anual.
+- Presencia y contacto con talento el día del evento.
+- Formato flexible: encaja con empresas pequeñas o startups que no pueden comprometerse a toda la temporada todavía.
 
-**Nota de producto**: el tier "colaborador de evento" es el que ya usan Lovable (créditos) y Racks — formalizarlo hace explícito algo que Start ya hace informalmente.
+**Importe**: [DATO: importe o "en especie" · Partnerships].
 
-## 5. Testimonios (huecos, pendiente de recogida — 2-3 citas)
+## 6. Testimonios (huecos, pendiente de recogida — 2-3 citas)
 
 > "[Cita pendiente]"
 > — [Nombre, cargo], NomuLabs
@@ -80,25 +75,60 @@ Estructura de 4 niveles, de mayor a menor compromiso. Importes **orientativos**,
 
 Acción: Partnerships pide estas 3 citas antes del lanzamiento — son lo que más convierte en un media kit B2B, más que cualquier cifra.
 
-## 6. Próximos eventos (gancho de urgencia)
+## 7. Próximos eventos (gancho de urgencia)
 
 Bloque con el próximo evento destacado y CTA a "reservar espacio de patrocinio para esta edición" — reutiliza el mismo patrón que la home usa para "próximo evento" de estudiantes, pero orientado a venta.
 
-## 7. CTA final + formulario
+## 8. CTA final + formulario
 
-> ¿Hablamos? Cuéntanos qué buscáis y vemos qué tier encaja.
+> ¿Hablamos? Cuéntanos si buscáis acompañar la temporada o empezar por un evento.
 
-Formulario (issue #16): empresa, contacto, tier de interés, mensaje libre. Va a Partnerships.
+Formulario (issue #16): empresa, contacto, tipo de interés (partner de temporada / evento concreto), mensaje libre. Va a Partnerships.
 
-## 8. Estructura del dossier PDF (`public/dossier-startuc3m.pdf`, bloqueado por diseño en Pencil)
+## 9. Estructura del dossier PDF (`public/dossier-startuc3m.pdf`, bloqueado por diseño en Pencil)
 
-El PDF descargable reutiliza este mismo contenido en 6-8 páginas:
+El PDF descargable reutiliza este mismo contenido en 6-8 páginas, con la jerarquía de 2 niveles (no 4):
+
 1. Portada — logo, claim, "Media kit 2026/27".
 2. Quiénes somos (de `.agents/product-marketing.md`).
 3. Datos y alcance (sección 3).
 4. Eventos de marca con foto (sección de `.agents/product-marketing.md`).
-5. Tiers y precios (sección 4).
-6. Testimonios (sección 5).
-7. Contacto.
+5. Partner de Temporada — qué incluye y precio (sección 4).
+6. Patrocinio de evento — qué incluye y precio (sección 5).
+7. Testimonios (sección 6).
+8. Contacto.
 
 Este archivo (`content/patrocina.md`) es el contenido fuente; falta maquetar en Pencil cuando exista el design system (#2).
+
+---
+
+## Copy — /patrocinadores (página pública)
+
+Issue #16. Página pública distinta de `/patrocina`: aquí no se vende, se agradece. Audiencia: cualquier visitante de la web (estudiantes, otros patrocinadores, ecosistema), no solo empresas evaluando patrocinar. Referencia de tono: `docs/tono.md`.
+
+### 1. Hero
+
+**Título**
+> Con quién construimos esta temporada.
+
+**Subtítulo**
+> Start Camp, StartXperience, Buildathon, Lovable Hackathon: estas empresas están en cada uno.
+
+### 2. Logos — Partners de temporada actual
+
+Grid de logos de los partners de temporada del curso en curso. Fuente: `.agents/product-marketing.md` lista NomuLabs, Pitchless, Lovable, Racks, TeamLabs, Madrid Startup Bar, Opinión20, ULVMAND como patrocinadores/partners conocidos — [DATO: cuáles de estos son partners de temporada 2026/27 frente a colaboradores puntuales de un evento · Partnerships]. Cada logo enlaza a la web del partner, sin más texto que el nombre (ticker o grid simple, sin jerarquía visual entre ellos).
+
+### 3. Agradecimiento
+
+> Gracias por acompañarnos toda la temporada. Sin vosotros, cada Buildathon, StartXperience y Start Camp sería más pequeño.
+
+Frase corta, sin autoelogio ni adjetivos de la lista prohibida (`docs/tono.md`).
+
+### 4. CTA hacia /patrocina
+
+**Título**
+> ¿Tu empresa quiere estar aquí el curso que viene?
+
+**CTA**: "Habla con Partnerships" → enlaza a `/patrocina`.
+
+Sección breve, un único CTA, sin repetir tiers ni cifras — esas viven en `/patrocina`.

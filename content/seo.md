@@ -1,6 +1,6 @@
 # SEO copy — metas por página
 
-Issue #26 (parte de copy; el SEO técnico es #20, de Ángel). Prioridad a `/patrocina` y `/apoya`, que hoy no existen y no captan nada.
+Issue #26 (parte de copy; el SEO técnico es #20, de Ángel). Prioridad a `/patrocina` y `/patrocinadores`, que hoy no existen y no captan nada.
 
 Formato: título ≤60 caracteres, description ≤155 caracteres.
 
@@ -14,10 +14,10 @@ Formato: título ≤60 caracteres, description ≤155 caracteres.
 - **Description**: Patrocina eventos de emprendimiento en la UC3M. Acceso a talento, visibilidad y presencia en Buildathon, StartXperience y Start Camp.
 - **Keyword objetivo**: "patrocinar evento universitario Madrid" / "patrocinio emprendimiento UC3M" — hoy esta URL no existe con contenido, es la ganancia de SEO más rápida de todo el proyecto.
 
-## `/apoya`
-- **Título**: Apoya a Start UC3M · Hazte mecenas
-- **Description**: Tu aportación financia eventos, material y becas de Start UC3M. Transparencia total sobre a qué va cada euro.
-- **Keyword objetivo**: "donar asociación estudiantes" — volumen bajo pero intención muy alta (alumni buscando cómo ayudar).
+## `/patrocinadores`
+- **Título**: Patrocinadores de Start UC3M · Quién hace posible cada evento
+- **Description**: NomuLabs, Pitchless, Lovable y el resto de partners que hacen posible Buildathon, StartXperience y Start Camp.
+- **Keyword objetivo**: "patrocinadores Start UC3M" / "partners emprendimiento UC3M" — página pública de logos, distinta del media kit de `/patrocina`.
 
 ## `/eventos`
 - **Título**: Eventos de Start UC3M · Buildathon, StartXperience, Start Camp
@@ -35,13 +35,13 @@ Formato: título ≤60 caracteres, description ≤155 caracteres.
 - **Keyword objetivo**: bajo volumen, prioridad SEO baja — página de confianza, no de captación.
 
 ## `/recursos`
-- **Título**: Recursos para starters · Start UC3M
-- **Description**: Guías, herramientas y recursos para emprender siendo estudiante de la UC3M.
-- **Keyword objetivo**: depende del contenido final que defina Marco en #17.
+- **Título**: Qué ofrece Start UC3M · Recursos para starters
+- **Description**: Eventos, comunidad y herramientas que Start pone a disposición de estudiantes y asistentes de la UC3M.
+- **Keyword objetivo**: "qué ofrece Start UC3M" / "recursos emprendimiento UC3M" — página informativa, no de captación de fondos; contenido final lo define Marco en #17.
 
 ## `/links`
 - **Título**: Start UC3M · Todos los enlaces
-- **Description**: Eventos, redes, patrocinio y mecenazgo de Start UC3M en un solo sitio.
+- **Description**: Eventos, redes y patrocinio de Start UC3M en un solo sitio.
 - Sin objetivo SEO real — es para bio de Instagram/TikTok, no para buscadores.
 
 ## Nota AEO/GEO (cómo nos citan los LLM)

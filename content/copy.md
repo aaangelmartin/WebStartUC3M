@@ -108,7 +108,7 @@ Contenido detallado en `docs/lanzamiento.md` — aquí solo estructura:
 2. Apúntate a Start
 3. Instagram / TikTok / LinkedIn / YouTube
 4. Patrocina Start
-5. Apoya a Start (mecenazgo)
+5. Recursos
 
 ---
 
@@ -117,7 +117,7 @@ Contenido detallado en `docs/lanzamiento.md` — aquí solo estructura:
 > start_ EMPRENDEDORES | UC3M
 > info@startuc3m.org
 > [IG] [TikTok] [LinkedIn] [YouTube]
-> Eventos · Equipo · Patrocina · Apoya · Recursos
+> Eventos · Equipo · Patrocina · Patrocinadores · Recursos
 
 ---
 
