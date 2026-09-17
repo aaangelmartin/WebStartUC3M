@@ -1,7 +1,7 @@
 ---
 import { asset } from '../lib/url';
 import Base from '../layouts/Base.astro';
-import Form from '../components/Form.astro';
+import RecruitingForm from '../components/RecruitingForm.astro';
 import { site } from '../lib/site';
 // Tres puertas de entrada a Start: eventos, comunidad, equipo.
 const ways = [
@@ -39,16 +39,10 @@ const perks = ['Equipo multidisciplinar: ADE, ingenierías, derecho, diseño', '
       <span class="eyebrow text-lavender">Proceso de entrada</span>
       <h2 class="display mt-3 text-[clamp(28px,3.5vw,48px)]">Quiero entrar en Start_</h2>
       <ol class="mt-6 flex flex-col gap-2 text-lavender">
-        {['Vienes al Buildathon y nos conoces trabajando', 'Hablamos de los departamentos y de qué te encaja', 'Rellenas esto y te escribimos'].map((s, i) => <li class="flex gap-3"><span class="font-mono">0{i + 1}_</span>{s}</li>)}
+        {['Vienes al Buildathon y nos conoces trabajando', 'Hablamos de los departamentos y de qué te encaja', 'Rellenas el formulario (el mismo de siempre, ahora aquí) y te escribimos'].map((s, i) => <li class="flex gap-3"><span class="font-mono">0{i + 1}_</span>{s}</li>)}
       </ol>
       <div class="mt-8">
-        <Form name="unete" dark submit="Apuntarme a Start" fields={[
-          { name: 'nombre', label: 'Nombre y apellidos', required: true },
-          { name: 'email', label: 'Email UC3M', type: 'email', required: true, placeholder: 'tu@alumnos.uc3m.es' },
-          { name: 'grado', label: 'Grado y curso', required: true, placeholder: 'Ingeniería Informática · 2º' },
-          { name: 'departamento', label: 'Departamento que te interesa', type: 'select', options: ['No lo sé aún', ...site.departments.map((d) => d.name)] },
-          { name: 'motivo', label: '¿Por qué quieres entrar en Start?', type: 'textarea', full: true, required: true },
-        ]} />
+        <RecruitingForm />
       </div>
     </div>
   </section>
