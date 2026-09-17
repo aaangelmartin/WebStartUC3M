@@ -1,10 +1,11 @@
 import type { APIRoute } from 'astro';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { SUBMISSIONS_FILE } from '../../lib/submissions';
 
 export const prerender = false;
 
 // Guarda cada envío en data/submissions.json (local, sin servicios externos).
-const FILE = new URL('../../../data/submissions.json', import.meta.url);
+const FILE = SUBMISSIONS_FILE;
 const ALLOWED = new Set(['unete', 'evento', 'patrocinio', 'contacto', 'newsletter']);
 
 export const POST: APIRoute = async ({ request }) => {
