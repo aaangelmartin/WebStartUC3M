@@ -45,6 +45,8 @@ export const site = {
     { name: 'Gonzalo Torrijos', role: 'Asociado', dept: 'Eventos', linkedin: 'https://www.linkedin.com/in/gonzalo-torrijos/' },
     { name: 'Pablo Juan', role: 'Asociado', dept: 'Legal', linkedin: 'https://www.linkedin.com/in/pablo-juan-conde/' },
   ],
+  // { name, role: cargo + años (ej. "Presidenta 2022-23"), linkedin? } — pendiente de contenido real de RRHH
+  alumni: [] as { name: string; role: string; linkedin?: string }[],
   tiers: [
     { name: 'Partner anual', desc: 'Todo el curso, todos los eventos, marca en web, redes y campus.', perks: ['Logo en todos los eventos del curso', 'Presencia en web, links y newsletter', 'Acceso a la comunidad y a la bolsa de talento', 'Mesa propia en StartXperience y Start Camp'] },
     { name: 'Gold', desc: 'Un evento grande con tu marca y presencia todo el año.', perks: ['Evento con naming ("Buildathon × Tu marca")', 'Logo en web y redes todo el curso', 'Charla o taller propio', 'Acceso a los perfiles de los asistentes'] },

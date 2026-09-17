@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Form from '../../components/Form.astro';
 import { getCollection, render } from 'astro:content';
+import { eventToIcs, icsDataHref } from '../../lib/ics';
 export async function getStaticPaths() {
   return (await getCollection('eventos')).map((e) => ({ params: { slug: e.id }, props: { e } }));
 }
@@ -9,6 +10,8 @@ const { e } = Astro.props;
 const { Content } = await render(e);
 const fmt = (d: Date) => d.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
 const open = e.data.status === 'abierto';
+const soldOut = e.data.status === 'sold-out';
+const icsHref = icsDataHref(eventToIcs({ title: e.data.title, description: e.data.subtitle, location: e.data.place, date: e.data.date, time: e.data.time }));
 ---
 <Base title={e.data.title} description={e.data.subtitle} tone="dark">
   <section class="bg-cobalt text-white">
@@ -23,7 +26,10 @@ const open = e.data.status === 'abierto';
         <div><dt class="eyebrow text-lavender/70">Fecha</dt><dd class="text-2xl font-semibold capitalize">{fmt(e.data.date)} · {e.data.time}</dd></div>
         <div><dt class="eyebrow text-lavender/70">Lugar</dt><dd class="text-2xl font-semibold">{e.data.place}</dd></div>
         {e.data.sponsors.length > 0 && <div><dt class="eyebrow text-lavender/70">Con el apoyo de</dt><dd class="text-xl font-semibold">{e.data.sponsors.join(' · ')}</dd></div>}
-        {open && <a href="#inscripcion" class="btn btn-on-blue md:self-end">Reservar plaza <span class="font-mono">→</span></a>}
+        <div class="flex flex-wrap gap-3 md:justify-end">
+          {open && <a href="#inscripcion" class="btn btn-on-blue">Reservar plaza <span class="font-mono">→</span></a>}
+          <a href={icsHref} download={`${e.id}.ics`} class="btn btn-outline text-white">Añadir al calendario <span class="font-mono">＋</span></a>
+        </div>
       </dl>
     </div>
   </section>
@@ -54,13 +60,32 @@ const open = e.data.status === 'abierto';
         </div>
       </div>
     </section>
+  ) : soldOut ? (
+    <section id="lista-espera" class="bg-navy text-white">
+      <div class="container-x py-20">
+        <span class="eyebrow text-lavender">Sold out</span>
+        <h2 class="display mt-3 text-[clamp(32px,5vw,64px)]">Apúntate a la lista de espera_</h2>
+        <p class="mt-4 max-w-xl text-lavender">Las plazas están completas. Si se libera alguna, avisamos por orden de inscripción.</p>
+        <div class="mt-10 max-w-3xl">
+          <input type="hidden" data-evento value={e.data.title} />
+          <input type="hidden" data-espera value="si" />
+          <Form name="evento" dark submit="Apuntarme a la lista de espera" fields={[
+            { name: 'nombre', label: 'Nombre y apellidos', required: true },
+            { name: 'email', label: 'Email', type: 'email', required: true, placeholder: 'tu@alumnos.uc3m.es' },
+            { name: 'grado', label: 'Grado y curso', required: true, placeholder: 'ADE · 3º' },
+          ]} />
+        </div>
+      </div>
+    </section>
   ) : (
-    <section class="container-x pb-20"><p class="eyebrow text-cobalt">{e.data.status === 'sold-out' ? 'Sold out · escríbenos para lista de espera' : 'Evento pasado'}</p></section>
+    <section class="container-x pb-20"><p class="eyebrow text-cobalt">Evento pasado</p></section>
   )}
 </Base>
 <script>
-  // Añade el nombre del evento al envío del formulario
+  // Añade el nombre del evento (y si es lista de espera) al envío del formulario
   const ev = document.querySelector<HTMLInputElement>('[data-evento]');
+  const espera = document.querySelector<HTMLInputElement>('[data-espera]');
   const form = document.querySelector<HTMLFormElement>('form[data-form="evento"]');
   if (ev && form) { const i = document.createElement('input'); i.type = 'hidden'; i.name = 'evento'; i.value = ev.value; form.appendChild(i); }
+  if (espera && form) { const i = document.createElement('input'); i.type = 'hidden'; i.name = 'tipo'; i.value = 'lista-espera'; form.appendChild(i); }
 </script>

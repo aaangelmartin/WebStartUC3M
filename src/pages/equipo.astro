@@ -24,7 +24,20 @@ const depts = ['Todos', ...site.departments.map((d) => d.name)];
     <div class="mt-24 rounded-brand bg-paper-2 p-10 md:p-16">
       <span class="eyebrow text-cobalt">Viejas glorias</span>
       <h2 class="display mt-3 text-[clamp(32px,4vw,56px)] text-cobalt">Alumni de Start_</h2>
-      <p class="mt-4 max-w-xl text-lg">Desde 2013 han pasado por Start decenas de starters que hoy fundan, invierten o trabajan en startups. Pronto, aquí.</p>
+      {site.alumni.length > 0 ? (
+        <ul class="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-4">
+          {site.alumni.map((a) => (
+            <li data-reveal>
+              <div class="aspect-[4/5] rounded-brand bg-cobalt"></div>
+              <h3 class="mt-4 text-xl font-bold">{a.name}</h3>
+              <p class="text-sm opacity-70">{a.role}</p>
+              {a.linkedin && <a href={a.linkedin} class="eyebrow mt-2 inline-block text-cobalt">LinkedIn</a>}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="mt-4 max-w-xl text-lg">Desde 2013 han pasado por Start decenas de starters que hoy fundan, invierten o trabajan en startups. Pronto, aquí.</p>
+      )}
     </div>
   </section>
 </Base>
