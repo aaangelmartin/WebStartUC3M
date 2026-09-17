@@ -8,6 +8,13 @@ function madridOffsetMinutes(instant: Date): number {
   return (asUTC - instant.getTime()) / 60000;
 }
 
+// Convierte fecha + hora local de Madrid (del frontmatter) al instante UTC real, cubriendo el cambio de horario.
+export function eventStartDate(date: Date, time: string): Date {
+  const [h, m] = time.split(':').map(Number);
+  const naiveUTC = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), h || 0, m || 0);
+  return new Date(naiveUTC - madridOffsetMinutes(new Date(naiveUTC)) * 60000);
+}
+
 // Genera un archivo .ics (RFC 5545) para el botón "Añadir al calendario" de la ficha de evento.
 export function eventToIcs(event: {
   title: string;
@@ -17,9 +24,7 @@ export function eventToIcs(event: {
   time: string;
   durationHours?: number;
 }): string {
-  const [h, m] = event.time.split(':').map(Number);
-  const naiveUTC = Date.UTC(event.date.getUTCFullYear(), event.date.getUTCMonth(), event.date.getUTCDate(), h || 0, m || 0);
-  const start = new Date(naiveUTC - madridOffsetMinutes(new Date(naiveUTC)) * 60000);
+  const start = eventStartDate(event.date, event.time);
   const end = new Date(start.getTime() + (event.durationHours ?? 3) * 60 * 60 * 1000);
   const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
   const esc = (s: string) => s.replace(/[\\,;]/g, (c) => '\\' + c).replace(/\n/g, '\\n');

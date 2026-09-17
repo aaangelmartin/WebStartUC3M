@@ -5,7 +5,7 @@ export function confirmationEmail(form: string, data: Record<string, string>): {
     case 'unete':
       return {
         subject: 'Recibimos tu solicitud para entrar en Start_',
-        body: `Hola ${data.nombre ?? ''},\n\nHemos recibido tu solicitud para unirte a Start UC3M (${data.departamento ?? 'departamento por decidir'}). Te contactamos pronto por email o LinkedIn.\n\n— Start UC3M`,
+        body: `Hola ${data.nombre ?? ''},\n\nHemos recibido tu solicitud para unirte a Start UC3M (${data.departamento || 'departamento por decidir'}). Te contactamos pronto por email o LinkedIn.\n\n— Start UC3M`,
       };
     case 'evento':
       return data.tipo === 'lista-espera'

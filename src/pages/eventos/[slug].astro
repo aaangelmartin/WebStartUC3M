@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Form from '../../components/Form.astro';
 import { getCollection, render } from 'astro:content';
-import { eventToIcs, icsDataHref } from '../../lib/ics';
+import { eventToIcs, icsDataHref, eventStartDate } from '../../lib/ics';
 export async function getStaticPaths() {
   return (await getCollection('eventos')).map((e) => ({ params: { slug: e.id }, props: { e } }));
 }
@@ -12,8 +12,20 @@ const fmt = (d: Date) => d.toLocaleDateString('es-ES', { weekday: 'long', day: '
 const open = e.data.status === 'abierto';
 const soldOut = e.data.status === 'sold-out';
 const icsHref = icsDataHref(eventToIcs({ title: e.data.title, description: e.data.subtitle, location: e.data.place, date: e.data.date, time: e.data.time }));
+const eventJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: e.data.title,
+  description: e.data.subtitle,
+  startDate: eventStartDate(e.data.date, e.data.time).toISOString(),
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  eventStatus: 'https://schema.org/EventScheduled',
+  location: { '@type': 'Place', name: e.data.place, address: e.data.place },
+  organizer: { '@type': 'Organization', name: 'Start UC3M', url: 'https://www.startuc3m.es' },
+};
 ---
 <Base title={e.data.title} description={e.data.subtitle} tone="dark">
+  <script type="application/ld+json" set:html={JSON.stringify(eventJsonLd)} />
   <section class="bg-cobalt text-white">
     <div class="container-x grid gap-12 pb-20 pt-20 md:grid-cols-[1.4fr_1fr] md:items-end">
       <div>
