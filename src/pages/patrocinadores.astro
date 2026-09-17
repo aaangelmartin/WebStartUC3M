@@ -2,9 +2,9 @@
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import { site } from '../lib/site';
-const tiers = ['Partner', 'Evento', 'Colaborador'].map((t) => [t === 'Evento' ? 'Patrocinio de evento' : t === 'Partner' ? 'Partners fijos' : 'Colaboradores', site.sponsors.filter((s) => s.tier === t)] as const);
+const tiers = ['Partner', 'Evento', 'Colaborador'].map((t) => [t === 'Evento' ? 'Patrocinio de evento' : t === 'Partner' ? 'Partners de temporada' : 'Colaboradores', site.sponsors.filter((s) => s.tier === t)] as const);
 ---
-<Base title="Patrocinadores" tone="dark">
+<Base title="Patrocinadores" description="Las empresas que acompañan a Start UC3M este curso: NomuLabs, Pitchless, Lovable, Racks y más." tone="dark">
   <PageHead eyebrow="Patrocinadores · Curso 2026/27" title="Gracias a quienes lo hacen posible_" intro="Las empresas que apoyan a Start UC3M este curso." />
   <section class="container-x py-20">
     {tiers.map(([t, list]) => (

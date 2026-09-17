@@ -7,7 +7,7 @@ const next = all.filter((e) => e.data.status !== 'pasado');
 const past = all.filter((e) => e.data.status === 'pasado').reverse();
 const fmt = (d: Date) => d.toLocaleDateString('es-ES', { day: '2-digit', month: 'short' }).toUpperCase();
 ---
-<Base title="Eventos" tone="dark">
+<Base title="Eventos" description="Buildathon, Lovable Hackathon, StartXperience y Start Camp: los eventos de emprendimiento de Start UC3M, todo el curso." tone="dark">
   <PageHead eyebrow="Eventos" title="Una tarde para construir, no para escuchar" intro="Buildathon, hackathones, StartXperience, Start Camp. Todo lo que organizamos este curso, con inscripción integrada." />
   <section class="container-x py-20">
     <span class="eyebrow text-cobalt">Próximos</span>

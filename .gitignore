@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # datos locales (envíos de formularios)
 data/*.json
+dist/

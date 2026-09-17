@@ -4,7 +4,7 @@ import PageHead from '../components/PageHead.astro';
 import { site } from '../lib/site';
 const cats = [...new Set(site.resources.map((r) => r.cat))];
 ---
-<Base title="Recursos" tone="dark">
+<Base title="Recursos" description="Programas de la UC3M, herramientas, ecosistema y guías propias para emprender siendo estudiante. Lo que te llevas por ser starter." tone="dark">
   <PageHead eyebrow="Recursos" title="Lo que usamos para construir_" intro="Programas de la UC3M, herramientas, ecosistema y guías propias. Lo vamos ampliando cada curso." />
   <section class="container-x py-20">
     {cats.map((c) => (

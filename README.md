@@ -40,6 +40,8 @@ npm run dev        # http://localhost:4321
 - **Evento**: `src/content/eventos/mi-evento.md` con `status: abierto` para que aparezca el formulario de inscripción.
 - **Episodio**: `src/content/podcast/ep-06.md`; la home muestra los últimos en la pista horizontal.
 
+Guía paso a paso para alguien sin experiencia técnica (equipo, patrocinadores, exportar inscripciones, tono de voz): `docs/guia-edicion.md`.
+
 ## Issues
 
 Trabajo repartido en [issues](https://github.com/aaangelmartin/WebStartUC3M/issues) con milestones 1–4. Cada PR enlaza su issue (`Closes #n`).
