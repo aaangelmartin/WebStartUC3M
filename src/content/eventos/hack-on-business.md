@@ -10,6 +10,6 @@ edition: "Histórico"
 image: "/media/home-banner.jpg"
 sponsors: []
 tags: ["Hackathon", "Equipos mixtos"]
-highlights: ["[COPY] 24 h de trabajo", "[COPY] Equipos business + ingeniería", "Jurado de empresas"]
+highlights: ["24 h de trabajo", "Equipos business + ingeniería", "Jurado de empresas"]
 ---
-[COPY] Hack On Business nació para juntar a estudiantes de negocio con ingenieros y formar equipos multidisciplinares capaces de sacar un proyecto adelante en un fin de semana.
+Hack On Business nació para juntar a estudiantes de negocio con ingenieros y formar equipos multidisciplinares capaces de sacar un proyecto adelante en un fin de semana.

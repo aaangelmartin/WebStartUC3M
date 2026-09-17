@@ -4,21 +4,23 @@ import Base from '../layouts/Base.astro';
 import Form from '../components/Form.astro';
 import { site } from '../lib/site';
 const stats = [['3.000', 'Estudiantes alcanzados por curso', 3000], ['3.000', 'Seguidores en Instagram', 2990], ['12', 'Eventos al año', 12], ['13', 'Años construyendo', 13]];
+// [COPY revisado 2026-09-17 por Álvaro] "04 Datos" rehecho: Start no cede perfiles ni feedback
+// individual de asistentes a los patrocinadores — ver docs/decisions.md. El valor es el contacto
+// en persona en el propio evento, nunca una base de datos exportable.
 const offers = [
-  ['01', 'Talento', '[COPY] Acceso a starters y asistentes: prácticas, cofundadores y primeras contrataciones. La gente que va a construir, antes de que esté en LinkedIn.'],
-  ['02', 'Marca en campus', '[COPY] Tu marca en todos los eventos, en la cartelería del campus y en las redes de Start (IG, TikTok, LinkedIn, YouTube).'],
-  ['03', 'Contenido', '[COPY] Un episodio de StartTheWeek con tu equipo y crónicas de tus eventos en el blog de Start.'],
-  ['04', 'Datos', '[COPY] Perfiles y feedback de los asistentes que lo autoricen, para saber quién vino y qué le interesó.'],
+  ['01', 'Talento', 'Starters y asistentes con los que hablar en persona en cada evento: prácticas, cofundadores y primeras contrataciones. La gente que va a construir, antes de que esté en LinkedIn.'],
+  ['02', 'Marca en campus', 'Tu marca en todos los eventos, en la cartelería del campus y en las redes de Start (IG, TikTok, LinkedIn, YouTube).'],
+  ['03', 'Contenido', 'Un episodio de StartTheWeek con tu equipo y crónicas de tus eventos en el blog de Start.'],
+  ['04', 'Feedback del evento', 'Un resumen de cómo fue tu evento: asistencia, ambiente y qué se dijo en redes. Nunca datos personales de los asistentes.'],
 ];
 const photos = [
   ['/media/starter.jpg', 'Buildathon', 'Arranque de curso · 60 personas construyendo en una tarde'],
   ['/media/location.jpg', 'StartXperience', 'Un día con startups, inversores e incubadoras · 300 personas'],
   ['/media/home-banner.jpg', 'Start Camp', 'Dos días de trabajo en equipo, mentores y demos · sold out'],
 ];
-const testimonials = [
-  { quote: '[COPY] "Con Start llegamos a la gente que queremos contratar antes que nadie. El Buildathon nos dio más candidatos que cualquier feria."', who: 'Equipo de NomuLabs', logo: '/logos/nomulabs.png' },
-  { quote: '[COPY] "Pitchless nació en un evento como estos. Patrocinar Start es devolver algo al sitio donde empezamos."', who: 'Equipo de Pitchless', logo: '/logos/pitchless.jpg' },
-];
+// [COPY revisado 2026-09-17 por Álvaro] Las citas anteriores eran inventadas y estaban atribuidas
+// a NomuLabs y Pitchless sin que lo hubieran dicho — retiradas. No se publica ninguna cita hasta
+// que Partnerships la consiga de verdad. Ver docs/decisions.md.
 const partner = site.tiers[0];
 const others = site.tiers.slice(1);
 ---
@@ -62,7 +64,7 @@ const others = site.tiers.slice(1);
   <section class="container-x grid gap-16 py-24 md:grid-cols-[1fr_1.3fr]">
     <div data-reveal><span class="eyebrow text-cobalt">Por qué Start</span><h2 class="display mt-4 text-[clamp(32px,4.5vw,64px)] text-cobalt" data-split>Talento antes de que esté en LinkedIn.</h2></div>
     <ul class="grid gap-8 sm:grid-cols-2" data-stagger>
-      {[['Audiencia cualificada', 'Estudiantes de ADE, ingenierías, derecho y diseño que ya han decidido que quieren construir algo.'], ['Eventos con marca', 'Buildathon, StartXperience y Start Camp con tu naming, tu producto y tu gente dentro.'], ['Bolsa de talento', 'Acceso a los perfiles de los asistentes que lo autoricen y a los starters de cada promoción.'], ['Presencia todo el curso', 'Web, links en bio, newsletter, redes (IG, TikTok, LinkedIn, YouTube) y campus.']].map(([h, d]) => (
+      {[['Audiencia cualificada', 'Estudiantes de ADE, ingenierías, derecho y diseño que ya han decidido que quieren construir algo.'], ['Eventos con marca', 'Buildathon, StartXperience y Start Camp con tu naming, tu producto y tu gente dentro.'], ['Contacto en persona', 'Tu equipo habla directamente con los asistentes y los starters en cada evento. Start no cede CVs ni datos personales: el valor es estar ahí.'], ['Presencia todo el curso', 'Web, links en bio, newsletter, redes (IG, TikTok, LinkedIn, YouTube) y campus.']].map(([h, d]) => (
         <li class="border-t-2 border-cobalt pt-5" data-reveal><h3 class="text-2xl font-bold">{h}</h3><p class="mt-2 opacity-80">{d}</p></li>
       ))}
     </ul>
@@ -140,20 +142,10 @@ const others = site.tiers.slice(1);
     <p class="eyebrow mt-8 text-lavender/70">Importes orientativos bajo petición · adaptamos cada colaboración</p>
   </div></section>
 
-  <!-- TESTIMONIOS -->
+  <!-- TESTIMONIOS: pendiente de citas reales de Partnerships, ver docs/decisions.md -->
   <section class="bg-paper text-ink"><div class="container-x py-24">
     <span class="eyebrow text-cobalt" data-reveal>Lo que dicen los partners</span>
-    <ul class="mt-8 grid gap-8 md:grid-cols-2" data-stagger>
-      {testimonials.map((t) => (
-        <li class="flex flex-col justify-between rounded-brand border border-line bg-white p-8 md:p-10" data-reveal>
-          <p class="text-2xl font-semibold leading-snug text-cobalt md:text-3xl">{t.quote}</p>
-          <div class="mt-8 flex items-center justify-between border-t border-line pt-6">
-            <span class="mono opacity-70">{t.who}</span>
-            <img src={asset(t.logo)} alt="" class="max-h-10 w-auto object-contain" loading="lazy" />
-          </div>
-        </li>
-      ))}
-    </ul>
+    <p class="display mt-4 max-w-xl text-[clamp(24px,3vw,40px)] text-cobalt/50" data-reveal>Próximamente_</p>
   </div></section>
 
   <!-- EVENTOS PATROCINABLES -->

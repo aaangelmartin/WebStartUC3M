@@ -60,23 +60,25 @@ export const site = {
   ],
   // { name, role: cargo + años (ej. "Presidenta 2022-23"), linkedin? } — pendiente de contenido real de RRHH
   alumni: [] as { name: string; role: string; linkedin?: string }[],
+  // [COPY revisado 2026-09-17 por Álvaro] Se mantienen los 3 tiers (decisión de diseño de Ángel);
+  // se corrige el texto que cedía datos de asistentes — ver docs/decisions.md.
   tiers: [
-    { name: 'Partner', tag: 'Fijo · todo el curso', desc: 'Tu marca dentro de Start de forma permanente: todos los eventos, la web, las redes y el campus.', perks: ['Logo en todos los eventos del curso', 'Presencia fija en web, links y newsletter', 'Acceso a la comunidad y a la bolsa de talento', 'Mesa propia en StartXperience y Start Camp', 'Episodio del podcast con tu equipo'] },
-    { name: 'Patrocinio de evento', tag: 'Por evento', desc: 'Un evento concreto con tu naming, tu producto y tu gente dentro.', perks: ['Naming ("Buildathon × Tu marca")', 'Logo en cartelería, ficha y redes del evento', 'Charla, taller o reto propio', 'Perfiles de los asistentes que lo autoricen'] },
+    { name: 'Partner', tag: 'Fijo · todo el curso', desc: 'Tu marca dentro de Start de forma permanente: todos los eventos, la web, las redes y el campus.', perks: ['Logo en todos los eventos del curso', 'Presencia fija en web, links y newsletter', 'Contacto en persona con talento en cada evento', 'Mesa propia en StartXperience y Start Camp', 'Episodio del podcast con tu equipo'] },
+    { name: 'Patrocinio de evento', tag: 'Por evento', desc: 'Un evento concreto con tu naming, tu producto y tu gente dentro.', perks: ['Naming ("Buildathon × Tu marca")', 'Logo en cartelería, ficha y redes del evento', 'Charla, taller o reto propio', 'Contacto en persona con talento el día del evento'] },
     { name: 'Colaborador', tag: 'En especie', desc: 'Producto, espacio, créditos o mentores.', perks: ['Logo en la ficha del evento', 'Agradecimiento en redes'] },
   ],
-  // [COPY] hitos para "Quiénes somos" — Álvaro revisa textos; Ángel fija el diseño
+  // [COPY revisado 2026-09-17 por Álvaro] hitos para "Quiénes somos"
   milestones: [
     { year: '2013', title: 'Nace Start', desc: 'Seis alumnos de ADE crean la asociación para conectar talento técnico, de diseño y de negocio.' },
-    { year: '2015', title: 'Alternativa Emprender', desc: '[COPY] Tres ediciones del evento de referencia con ponencias y talleres.' },
-    { year: '2019', title: 'Hack On Business', desc: '[COPY] Hackathon que junta a business con ingenieros en equipos multidisciplinares.' },
-    { year: '2024', title: 'StartXperience', desc: '[COPY] Un día con startups pre-seed, inversores e incubadoras del ecosistema madrileño.' },
-    { year: '2026', title: 'Buildathon y podcast', desc: '[COPY] Arrancamos el curso construyendo y lanzamos Start_Talks.' },
+    { year: '2015', title: 'Alternativa Emprender', desc: 'Primera edición del evento que junta a startups y estudiantes en el campus. Tres ediciones seguidas.' },
+    { year: '2019', title: 'Hack On Business', desc: 'Hackathon que mete a perfiles de negocio e ingeniería en el mismo equipo, para que nadie construya solo.' },
+    { year: '2024', title: 'StartXperience', desc: 'Un día entero con startups pre-seed, empresas e inversores del ecosistema madrileño compartiendo sala con estudiantes.' },
+    { year: '2026', title: 'Buildathon y podcast', desc: 'Arrancamos el curso construyendo en una tarde y lanzamos StartTheWeek, el podcast de la comunidad.' },
   ],
   pillars: [
-    { title: 'Eventos', desc: '[COPY] Buildathon, hackathones, StartXperience, Start Camp: formatos para construir, no para escuchar.' },
-    { title: 'Comunidad', desc: '[COPY] Más de 3.000 estudiantes, alumni que fundan e invierten, y empresas que apoyan.' },
-    { title: 'Proyectos', desc: '[COPY] Acompañamos a los equipos que quieren sacar su proyecto adelante desde la universidad.' },
+    { title: 'Eventos', desc: 'Buildathon, hackathones, StartXperience, Start Camp: formatos para construir, no para escuchar una charla más.' },
+    { title: 'Comunidad', desc: 'Miles de estudiantes desde 2013, alumni que siguen construyendo, y empresas que apoyan cada curso.' },
+    { title: 'Proyectos', desc: 'Ideas que salen de un Buildathon y equipos que siguen construyendo después, dentro y fuera de la universidad.' },
   ],
   links: [
     { label: 'Apuntarme al Buildathon', href: '/eventos/buildathon-pitchless-nomulabs', featured: true },

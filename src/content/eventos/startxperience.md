@@ -15,6 +15,6 @@ agenda:
   - { time: "18:00", title: "Networking + últimas votaciones", desc: "Cierre con votaciones a los mejores proyectos." }
 image: "/media/home-banner.jpg"
 edition: "Curso 2025/26"
-highlights: ["[COPY] 300 asistentes", "Inversores e incubadoras", "Votación final"]
+highlights: ["300 asistentes", "Inversores e incubadoras", "Votación final"]
 ---
 StartXperience es un evento presencial de un día que reúne a startups en fase pre-seed, empresas y profesionales del ecosistema emprendedor, con inversores, lanzaderas e incubadoras. Un formato que recoge todas las iniciativas relacionadas con el emprendimiento que se están desarrollando en Madrid.

@@ -10,6 +10,6 @@ edition: "Histórico · 3ª edición"
 image: "/media/location.jpg"
 sponsors: []
 tags: ["Ponencias", "Talleres"]
-highlights: ["[COPY] Evento multitudinario", "[COPY] Ponentes emprendedores", "3ª edición"]
+highlights: ["Evento multitudinario", "Ponentes emprendedores", "3ª edición"]
 ---
-[COPY] Alternativa Emprender fue el evento de referencia de los primeros años de Start: un evento multitudinario con ponencias y talleres en el que trajimos a numerosos emprendedores que por aquel momento estaban triunfando.
+Alternativa Emprender fue el evento de referencia de los primeros años de Start: un evento multitudinario con ponencias y talleres en el que trajimos a numerosos emprendedores que por aquel momento estaban triunfando.
