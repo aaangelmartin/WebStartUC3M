@@ -1,0 +1,18 @@
+---
+// Página de links para la bio de Instagram/TikTok (móvil-first, sin nav)
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import { site } from '../lib/site';
+---
+<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Links | Start UC3M</title><meta name="theme-color" content="#2b3a91" />
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet" /></head>
+<body class="bg-cobalt text-white">
+  <main class="mx-auto flex min-h-screen max-w-md flex-col px-5 py-12">
+    <div class="flex flex-col items-center gap-2"><Logo tone="white" size={48} /><span class="text-xs font-light tracking-[0.25em] text-lavender">EMPRENDEDORES | UC3M</span></div>
+    <p class="eyebrow mt-8 text-center text-lavender">Inscripciones abiertas · Curso {site.course}</p>
+    <ul class="mt-6 flex flex-col gap-3">
+      {site.links.map((l) => <li><a href={l.href} class={`flex items-center justify-between rounded-brand px-5 py-4 text-lg font-semibold ${l.featured ? 'bg-white text-cobalt' : 'border border-white/50'}`}>{l.label}<span class="font-mono">→</span></a></li>)}
+    </ul>
+    <div class="mt-auto flex justify-center gap-6 pt-12 text-sm font-semibold">{Object.entries(site.social).map(([k, v]) => <a href={v} class="capitalize underline-offset-4 hover:underline">{k}</a>)}</div>
+  </main>
+</body></html>

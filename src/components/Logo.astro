@@ -1,0 +1,8 @@
+---
+// Wordmark start_ : Titillium + cursor. `tone` = "white" | "cobalt"
+const { tone = 'cobalt', size = 28 } = Astro.props;
+const color = tone === 'white' ? 'text-white' : 'text-cobalt';
+---
+<a href="/" class={`inline-flex items-end gap-[0.08em] font-sans font-bold leading-none tracking-[-0.04em] ${color}`} style={`font-size:${size}px`} aria-label="Start UC3M, inicio">
+  <span>start</span><span class="mb-[0.06em] inline-block h-[0.14em] w-[0.6em] bg-current"></span>
+</a>

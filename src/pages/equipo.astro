@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { site } from '../lib/site';
+const depts = ['Todos', ...site.departments.map((d) => d.name)];
+---
+<Base title="Equipo" tone="dark">
+  <PageHead eyebrow="Equipo" title="Conoce a quien está detrás_" intro="Una asociación sin equipo no es nada. Detrás de Start UC3M hay un grupo de personas con ganas de cambiar las cosas." />
+  <section class="container-x py-16">
+    <div class="flex flex-wrap gap-2" role="tablist">
+      {depts.map((d, i) => <button data-filter={d} class={`eyebrow rounded-full border px-3 py-2 ${i === 0 ? 'bg-cobalt text-white border-cobalt' : 'border-line'}`}>{d}</button>)}
+    </div>
+    <p data-dept-desc class="mt-8 max-w-2xl text-lg opacity-80"></p>
+    <ul class="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-4">
+      {site.team.map((m) => (
+        <li data-dept={m.dept} data-reveal>
+          <div class="aspect-[4/5] rounded-brand bg-cobalt"></div>
+          <h2 class="mt-4 text-xl font-bold">{m.name}</h2>
+          <p class="text-sm opacity-70">{m.role} · {m.dept}</p>
+          {m.linkedin && <a href={m.linkedin} class="eyebrow mt-2 inline-block text-cobalt">LinkedIn</a>}
+        </li>
+      ))}
+    </ul>
+    <div class="mt-24 rounded-brand bg-paper-2 p-10 md:p-16">
+      <span class="eyebrow text-cobalt">Viejas glorias</span>
+      <h2 class="display mt-3 text-[clamp(32px,4vw,56px)] text-cobalt">Alumni de Start_</h2>
+      <p class="mt-4 max-w-xl text-lg">Desde 2013 han pasado por Start decenas de starters que hoy fundan, invierten o trabajan en startups. Pronto, aquí.</p>
+    </div>
+  </section>
+</Base>
+<script define:vars={{ departments: site.departments }}>
+  const buttons = document.querySelectorAll('[data-filter]');
+  const items = document.querySelectorAll('[data-dept]');
+  const desc = document.querySelector('[data-dept-desc]');
+  const apply = (d) => {
+    buttons.forEach((b) => b.classList.toggle('bg-cobalt', b.dataset.filter === d) || b.classList.toggle('text-white', b.dataset.filter === d) || b.classList.toggle('border-cobalt', b.dataset.filter === d));
+    items.forEach((it) => (it.style.display = d === 'Todos' || it.dataset.dept === d ? '' : 'none'));
+    desc.textContent = departments.find((x) => x.name === d)?.desc ?? '';
+    history.replaceState(null, '', d === 'Todos' ? location.pathname : `?dept=${encodeURIComponent(d)}`);
+  };
+  buttons.forEach((b) => b.addEventListener('click', () => apply(b.dataset.filter)));
+  const q = new URLSearchParams(location.search).get('dept'); if (q) apply(q);
+</script>

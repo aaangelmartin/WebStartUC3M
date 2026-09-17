@@ -1,0 +1,35 @@
+---
+// Sección de podcasts: pista horizontal que avanza con el scroll (ver lib/motion.ts)
+import { getCollection } from 'astro:content';
+const eps = (await getCollection('podcast')).sort((a, b) => b.data.episode - a.data.episode);
+---
+<section data-podcast-pin class="relative h-screen overflow-hidden bg-cobalt text-white">
+  <div class="container-x flex items-end justify-between pt-16">
+    <div>
+      <span class="eyebrow text-lavender">Podcast · Start_Talks</span>
+      <h2 class="display mt-3 text-[clamp(40px,7vw,96px)]" data-split>Conversaciones con gente que construye</h2>
+    </div>
+    <a href="/podcast" class="btn btn-on-blue hidden md:inline-flex">Todos los episodios <span class="font-mono">→</span></a>
+  </div>
+  <div data-podcast-track class="mt-12 flex items-stretch gap-8 pl-4 md:pl-16 will-change-transform">
+    {eps.map((e) => (
+      <a href={`/podcast#${e.id}`} class="group relative flex w-[78vw] shrink-0 flex-col justify-between rounded-brand border border-white/25 bg-cobalt-deep/40 p-8 md:w-[520px] md:p-10">
+        <span data-ep-number class="display pointer-events-none absolute -top-6 right-6 text-[160px] leading-none text-white/10 md:text-[220px]">{String(e.data.episode).padStart(2, '0')}</span>
+        <div class="relative">
+          <span class="eyebrow text-lavender">EP {String(e.data.episode).padStart(2, '0')} · {e.data.duration}</span>
+          <h3 class="display mt-4 text-[clamp(28px,3vw,44px)] tracking-[-0.02em]">{e.data.title}</h3>
+        </div>
+        <div class="relative mt-16 flex items-end justify-between">
+          <div>
+            <p class="text-xl font-semibold">{e.data.guest}</p>
+            <p class="text-sm text-lavender">{e.data.role}</p>
+          </div>
+          <span class="grid h-14 w-14 place-items-center rounded-full bg-white text-cobalt transition-transform group-hover:scale-110" aria-hidden="true">▶</span>
+        </div>
+      </a>
+    ))}
+    <a href="/podcast" class="flex w-[60vw] shrink-0 items-center justify-center md:w-[400px]">
+      <span class="display text-[clamp(32px,4vw,56px)] underline decoration-2 underline-offset-8">Ver todos_</span>
+    </a>
+  </div>
+</section>

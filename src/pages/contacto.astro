@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import Form from '../components/Form.astro';
+import { site } from '../lib/site';
+---
+<Base title="Contacto" tone="dark">
+  <section class="bg-cobalt text-white"><div class="container-x grid gap-12 pb-20 pt-20 md:grid-cols-[1fr_1.2fr]">
+    <div><span class="eyebrow text-lavender">Contacto</span><h1 class="display mt-4 text-[clamp(44px,7vw,104px)]" data-split>Escríbenos_</h1><p class="mt-6 text-xl text-lavender">O directamente a <a class="underline" href={`mailto:${site.email}`}>{site.email}</a>.</p></div>
+    <Form name="contacto" dark fields={[
+      { name: 'nombre', label: 'Nombre', required: true },
+      { name: 'email', label: 'Email', type: 'email', required: true },
+      { name: 'asunto', label: 'Asunto', full: true, required: true },
+      { name: 'mensaje', label: 'Mensaje', type: 'textarea', full: true, required: true },
+    ]} />
+  </div></section>
+</Base>

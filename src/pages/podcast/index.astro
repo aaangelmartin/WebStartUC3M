@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { getCollection, render } from 'astro:content';
+const eps = (await getCollection('podcast')).sort((a, b) => b.data.episode - a.data.episode);
+const rendered = await Promise.all(eps.map(async (e) => ({ e, Content: (await render(e)).Content })));
+---
+<Base title="Podcast" tone="dark">
+  <PageHead eyebrow="Podcast · Start_Talks" title="Conversaciones con gente que construye" intro="Fundadores, starters y viejas glorias contando cómo se emprende desde la universidad. En YouTube y Spotify." />
+  <section class="container-x py-20">
+    <ol class="border-t border-line">
+      {rendered.map(({ e, Content }) => (
+        <li id={e.id} data-reveal class="grid gap-6 border-b border-line py-10 md:grid-cols-[140px_1fr_auto] md:items-start">
+          <span class="display text-6xl text-cobalt md:text-7xl">{String(e.data.episode).padStart(2, '0')}</span>
+          <div>
+            <span class="eyebrow text-cobalt">{e.data.date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })} · {e.data.duration}</span>
+            <h2 class="mt-2 text-3xl font-bold md:text-4xl">{e.data.title}</h2>
+            <p class="mt-2 text-lg"><strong>{e.data.guest}</strong> <span class="opacity-70">· {e.data.role}</span></p>
+            <div class="prose mt-4 max-w-2xl"><Content /></div>
+          </div>
+          <div class="flex gap-2 md:flex-col">
+            {e.data.youtube && <a href={e.data.youtube} class="btn btn-primary">YouTube ▶</a>}
+            {e.data.spotify && <a href={e.data.spotify} class="btn btn-outline">Spotify</a>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+</Base>

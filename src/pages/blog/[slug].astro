@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  return (await getCollection('blog')).map((p) => ({ params: { slug: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const { Content } = await render(p);
+---
+<Base title={p.data.title} description={p.data.excerpt} tone="dark">
+  <section class="bg-cobalt text-white"><div class="container-x pb-16 pt-20">
+    <span class="eyebrow text-lavender">{p.data.category} · {p.data.date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })} · {p.data.author}</span>
+    <h1 class="display mt-4 max-w-5xl text-[clamp(40px,6vw,88px)]" data-split>{p.data.title}</h1>
+    <p class="mt-6 max-w-2xl text-xl text-lavender">{p.data.excerpt}</p>
+  </div></section>
+  <article class="container-x py-20"><div class="prose prose-lg mx-auto max-w-[68ch] text-ink prose-headings:font-bold prose-a:text-cobalt"><Content /></div></article>
+</Base>

@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { site } from '../lib/site';
+const cats = [...new Set(site.resources.map((r) => r.cat))];
+---
+<Base title="Recursos" tone="dark">
+  <PageHead eyebrow="Recursos" title="Lo que usamos para construir_" intro="Programas de la UC3M, herramientas, ecosistema y guías propias. Lo vamos ampliando cada curso." />
+  <section class="container-x py-20">
+    {cats.map((c) => (
+      <div class="border-t border-line py-10" data-reveal>
+        <span class="eyebrow text-cobalt">{c}</span>
+        <ul class="mt-4 grid gap-x-12 md:grid-cols-2">
+          {site.resources.filter((r) => r.cat === c).map((r) => (
+            <li class="border-b border-line py-5"><a href={r.url} class="group block"><h2 class="text-2xl font-bold group-hover:underline">{r.title} <span class="font-mono text-cobalt">→</span></h2><p class="mt-1 opacity-70">{r.desc}</p></a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+</Base>

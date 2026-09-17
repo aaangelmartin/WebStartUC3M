@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog')).filter((p) => !p.data.draft).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const cats = ['Eventos', 'Comunidad', 'Recursos', 'Prensa'];
+---
+<Base title="Blog" tone="dark">
+  <PageHead eyebrow="Blog" title="Lo último de la comunidad" intro="Crónicas de eventos, cómo entrar en Start, recursos y prensa. Escrito por el equipo de Comunicación.">
+    <ul class="mt-8 flex flex-wrap gap-2">{cats.map((c) => <li class="eyebrow rounded-full border border-white/40 px-3 py-2">{c}</li>)}</ul>
+  </PageHead>
+  <section class="container-x grid gap-10 py-20 md:grid-cols-3">
+    {posts.map((p) => (
+      <a href={`/blog/${p.id}`} class="group" data-reveal>
+        <div class="aspect-[16/10] rounded-brand bg-cobalt transition-transform group-hover:-translate-y-1"></div>
+        <span class="eyebrow mt-4 block text-cobalt">{p.data.category} · {p.data.date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+        <h2 class="mt-2 text-2xl font-bold leading-tight group-hover:underline">{p.data.title}</h2>
+        <p class="mt-2 opacity-70">{p.data.excerpt}</p>
+      </a>
+    ))}
+  </section>
+</Base>
