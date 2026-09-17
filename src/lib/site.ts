@@ -61,8 +61,8 @@ export const site = {
   // { name, role: cargo + años (ej. "Presidenta 2022-23"), linkedin? } — pendiente de contenido real de RRHH
   alumni: [] as { name: string; role: string; linkedin?: string }[],
   tiers: [
-    { name: 'Partner', tag: 'Fijo · todo el curso', desc: 'Tu marca dentro de Start de forma permanente: todos los eventos, la web, las redes y el campus.', perks: ['Logo en todos los eventos del curso', 'Presencia fija en web, links y newsletter', 'Acceso a la comunidad y a la bolsa de talento', 'Mesa propia en StartXperience y Start Camp', 'Episodio del podcast con tu equipo'] },
-    { name: 'Patrocinio de evento', tag: 'Por evento', desc: 'Un evento concreto con tu naming, tu producto y tu gente dentro.', perks: ['Naming ("Buildathon × Tu marca")', 'Logo en cartelería, ficha y redes del evento', 'Charla, taller o reto propio', 'Perfiles de los asistentes que lo autoricen'] },
+    { name: 'Partner', tag: 'Fijo · todo el curso', desc: 'Tu marca dentro de Start de forma permanente: todos los eventos, la web, las redes y el campus.', perks: ['Logo en todos los eventos del curso', 'Presencia fija en web, links y newsletter', 'Contacto directo con los starters de cada promoción', 'Mesa propia en StartXperience y Start Camp', 'Episodio del podcast con tu equipo'] },
+    { name: 'Patrocinio de evento', tag: 'Por evento', desc: 'Un evento concreto con tu naming, tu producto y tu gente dentro.', perks: ['Naming ("Buildathon × Tu marca")', 'Logo en cartelería, ficha y redes del evento', 'Charla, taller o reto propio', 'Contacto en persona con quienes se acercan a tu stand o reto'] },
     { name: 'Colaborador', tag: 'En especie', desc: 'Producto, espacio, créditos o mentores.', perks: ['Logo en la ficha del evento', 'Agradecimiento en redes'] },
   ],
   // Hitos para "Quiénes somos"
