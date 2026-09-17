@@ -16,7 +16,7 @@ const articleJsonLd = {
   publisher: { '@type': 'Organization', name: 'Start UC3M' },
 };
 ---
-<Base title={p.data.title} description={p.data.excerpt} tone="dark">
+<Base title={p.data.title} description={p.data.excerpt} tone="dark" image={p.data.cover}>
   <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
   <section class="bg-cobalt text-white"><div class="container-x pb-16 pt-20">
     <span class="eyebrow text-lavender">{p.data.category} · {p.data.date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })} · {p.data.author}</span>

@@ -4,10 +4,11 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/site';
-const { title, description = site.description, tone = 'light' } = Astro.props;
+const { title, description = site.description, tone = 'light', image } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const fullTitle = title ? `${title} | Start UC3M` : 'Start UC3M | Asociación de emprendedores de la UC3M';
 const siteOrigin = Astro.site?.origin ?? 'https://www.startuc3m.es';
+const ogImage = image ? (image.startsWith('http') ? image : `${siteOrigin}${base}${image}`) : `${siteOrigin}${base}/brand/logo-full-cobalt.png`;
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -42,6 +43,10 @@ const organizationJsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Start UC3M" />
     <meta property="og:locale" content="es_ES" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />

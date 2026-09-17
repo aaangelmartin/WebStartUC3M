@@ -14,6 +14,8 @@ Contenido que cambia con frecuencia y tiene una entrada por archivo, editable co
 
 Editar contenido = editar/añadir un `.md` y hacer commit. No hay seed ni base de datos: el propio contenido versionado en git **es** el seed.
 
+El markdown de un post admite HTML crudo tal cual (Astro no lo sanitiza), así que para incrustar un vídeo de YouTube o un post de Instagram basta con pegar su `<iframe>`/embed directamente en el `.md` — no hace falta ninguna sintaxis especial.
+
 ## 2. Datos estructurados (`src/lib/site.ts`)
 
 Todo lo que no encaja como "artículo individual" — listas cortas y globals — vive como objetos tipados en `site.ts`: `team`, `departments`, `alumni`, `tiers`, `links`, `resources`, `sponsors`, más los globals `name/claim/description/email/social/course`. Mismo criterio: para cambiar contenido, se edita este archivo y se comitea.
