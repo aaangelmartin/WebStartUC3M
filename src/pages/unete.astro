@@ -1,4 +1,5 @@
 ---
+import { asset } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import Form from '../components/Form.astro';
 import { site } from '../lib/site';
@@ -21,7 +22,7 @@ const perks = ['Equipo multidisciplinar: ADE, ingenierías, derecho, diseño', '
     <div class="grid gap-8 md:grid-cols-3">
       {ways.map((w, i) => (
         <a href={w.cta[1]} class="group flex flex-col" data-reveal>
-          <div class="relative aspect-[4/5] overflow-hidden rounded-brand bg-cobalt"><img src={w.img} alt="" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" /><span class="display absolute left-5 top-4 text-6xl text-white">0{i + 1}</span></div>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-brand bg-cobalt"><img src={asset(w.img)} alt="" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" /><span class="display absolute left-5 top-4 text-6xl text-white">0{i + 1}</span></div>
           <h2 class="mt-5 text-3xl font-bold group-hover:underline">{w.t}</h2>
           <p class="mt-2 opacity-80">{w.d}</p>
           <span class="mono mt-4 text-cobalt">{w.cta[0]} →</span>

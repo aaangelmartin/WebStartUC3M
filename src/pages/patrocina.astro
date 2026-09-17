@@ -1,4 +1,5 @@
 ---
+import { asset } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import Form from '../components/Form.astro';
 import { site } from '../lib/site';
@@ -50,7 +51,7 @@ const stats = [['3.000', 'Estudiantes alcanzados por curso', 3000], ['3.000', 'S
         <li class="grid gap-2 border-b border-line py-6 md:grid-cols-[1fr_1.5fr_auto] md:items-center"><span class="text-3xl font-bold">{n}</span><span class="opacity-70">{d}</span><span class="eyebrow text-cobalt">{t}</span></li>
       ))}
     </ul>
-    <div class="mt-16"><span class="eyebrow text-cobalt">Ya confían en Start</span><ul class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">{site.sponsors.map((s) => <li class="grid aspect-[3/1.4] place-items-center rounded-brand bg-paper-2 p-6">{s.logo ? <img src={s.logo} alt={s.name} class="max-h-12 w-auto object-contain" loading="lazy" /> : <span class="text-xl font-bold uppercase tracking-wider text-cobalt">{s.name}</span>}</li>)}</ul></div>
+    <div class="mt-16"><span class="eyebrow text-cobalt">Ya confían en Start</span><ul class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">{site.sponsors.map((s) => <li class="grid aspect-[3/1.4] place-items-center rounded-brand bg-paper-2 p-6">{s.logo ? <img src={asset(s.logo)} alt={s.name} class="max-h-12 w-auto object-contain" loading="lazy" /> : <span class="text-xl font-bold uppercase tracking-wider text-cobalt">{s.name}</span>}</li>)}</ul></div>
   </section>
 
   <section id="contacto" class="bg-cobalt text-white"><div class="container-x grid gap-12 py-24 md:grid-cols-[1fr_1.4fr]">

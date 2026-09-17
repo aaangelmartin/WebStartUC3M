@@ -38,6 +38,20 @@ export function initMotion() {
     });
   });
 
+  // Podcasts: pista horizontal pineada que avanza con el scroll
+  const track = document.querySelector<HTMLElement>('[data-podcast-track]');
+  const pin = document.querySelector<HTMLElement>('[data-podcast-pin]');
+  if (track && pin) {
+    const distance = () => track.scrollWidth - window.innerWidth + 64;
+    gsap.to(track, {
+      x: () => -distance(), ease: 'none',
+      scrollTrigger: { trigger: pin, start: 'top top', end: () => `+=${distance()}`, pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1 },
+    });
+    track.querySelectorAll<HTMLElement>('[data-ep-number]').forEach((n) => {
+      gsap.to(n, { xPercent: -40, ease: 'none', scrollTrigger: { trigger: pin, start: 'top top', end: () => `+=${distance()}`, scrub: true } });
+    });
+  }
+
   // Parallax constante al scroll en imágenes y números grandes
   document.querySelectorAll<HTMLElement>('[data-parallax]').forEach((el) => {
     const amount = Number(el.dataset.parallax || 12);
