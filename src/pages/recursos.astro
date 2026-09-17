@@ -3,19 +3,87 @@ import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import { site } from '../lib/site';
 const cats = [...new Set(site.resources.map((r) => r.cat))];
+// [COPY] Álvaro revisa textos; la estructura (3 audiencias + ofertas) la fija el diseño
+const audiences = [
+  {
+    n: '01', eyebrow: 'Tienes una idea', title: 'De la idea a un equipo y un prototipo_', tone: 'paper',
+    intro: '[COPY] Si tienes una idea (o solo ganas), Start te pone al lado de la gente y los recursos para probarla antes de terminar la carrera.',
+    offers: [
+      ['Mentores', '[COPY] Fundadores y profesionales del ecosistema que revisan tu idea y te dicen lo que nadie te dice.'],
+      ['Equipo multidisciplinar', '[COPY] ADE, ingenierías, derecho y diseño en la misma mesa: el cofundador que te falta suele estar en Start.'],
+      ['Validación en el Buildathon', '[COPY] Una tarde para construir un prototipo funcional y enseñarlo. Sin saber programar.'],
+      ['Acceso a la incubadora UC3M', '[COPY] Te acompañamos hasta los programas y ayudas de emprendimiento de la universidad.'],
+    ],
+    cta: ['Cuéntanos tu idea', '/contacto'],
+  },
+  {
+    n: '02', eyebrow: 'Tienes una startup', title: 'Talento, visibilidad e inversores_', tone: 'navy',
+    intro: '[COPY] Start es la puerta de entrada al talento y a la comunidad emprendedora de la UC3M. Úsala.',
+    offers: [
+      ['Visibilidad en eventos', '[COPY] Presenta tu startup ante cientos de estudiantes en Buildathon, Start Camp o StartXperience.'],
+      ['Talento de la UC3M', '[COPY] Prácticas, primeras contrataciones y cofundadores entre starters y asistentes.'],
+      ['StartXperience con inversores', '[COPY] Un día con inversores, lanzaderas e incubadoras del ecosistema madrileño.'],
+      ['Podcast StartTheWeek', '[COPY] Cuenta tu historia en el podcast de Start UC3M, en YouTube y redes.'],
+    ],
+    cta: ['Hablar con Start', '/contacto'],
+  },
+  {
+    n: '03', eyebrow: 'Quieres venir a eventos', title: 'Abiertos a toda la UC3M, sin ser socio_', tone: 'paper',
+    intro: '[COPY] No hace falta tener idea ni ser starter. Vienes, construyes, conoces gente y te vas con algo.',
+    offers: [
+      ['Calendario del curso', '[COPY] Todos los eventos con fecha, lugar e inscripción integrada en la web.'],
+      ['Formatos para todos', '[COPY] Buildathon, hackathones, Start Camp, StartXperience: de una tarde a dos días.'],
+      ['Sin ser socio', '[COPY] Los eventos están abiertos a cualquier estudiante de la UC3M. Solo tienes que apuntarte.'],
+      ['Newsletter', '[COPY] Un correo cuando abrimos plazas. Nada más.'],
+    ],
+    cta: ['Ver eventos', '/eventos'],
+  },
+];
 ---
-<Base title="Recursos" tone="dark">
-  <PageHead eyebrow="Recursos" title="Lo que usamos para construir_" intro="Programas de la UC3M, herramientas, ecosistema y guías propias. Lo vamos ampliando cada curso." />
-  <section class="container-x py-20">
-    {cats.map((c) => (
-      <div class="border-t border-line py-10" data-reveal>
-        <span class="eyebrow text-cobalt">{c}</span>
-        <ul class="mt-4 grid gap-x-12 md:grid-cols-2">
-          {site.resources.filter((r) => r.cat === c).map((r) => (
-            <li class="border-b border-line py-5"><a href={r.url} class="group block"><h2 class="text-2xl font-bold group-hover:underline">{r.title} <span class="font-mono text-cobalt">→</span></h2><p class="mt-1 opacity-70">{r.desc}</p></a></li>
-          ))}
-        </ul>
+<Base title="Recursos" description="Lo que Start UC3M ofrece a estudiantes con idea, startups y gente que quiere venir a eventos." tone="dark">
+  <PageHead eyebrow="Recursos" title="En qué te puede ayudar Start_" intro="Lo que Start te ofrece según quién seas: tienes una idea, tienes una startup o quieres venir a eventos. Sin letra pequeña." />
+
+  {audiences.map((a) => {
+    const dark = a.tone === 'navy';
+    return (
+      <section class={dark ? 'bg-navy text-white' : 'bg-paper text-ink'}>
+        <div class="container-x grid gap-12 py-24 md:grid-cols-[1fr_1.4fr]">
+          <div data-reveal>
+            <span class={`display text-6xl ${dark ? 'text-lavender/50' : 'text-cobalt/30'}`}>{a.n}</span>
+            <span class={`eyebrow mt-6 block ${dark ? 'text-lavender' : 'text-cobalt'}`}>{a.eyebrow}</span>
+            <h2 class={`display mt-3 text-[clamp(32px,4.5vw,64px)] ${dark ? '' : 'text-cobalt'}`}>{a.title}</h2>
+            <p class={`mt-6 max-w-md text-lg leading-relaxed ${dark ? 'text-lavender' : 'opacity-80'}`}>{a.intro}</p>
+            <a href={a.cta[1]} class={`btn mt-8 ${dark ? 'btn-on-blue' : 'btn-primary'}`}>{a.cta[0]} <span class="font-mono">→</span></a>
+          </div>
+          <ul class={`grid gap-x-8 border-t sm:grid-cols-2 ${dark ? 'border-cobalt' : 'border-line'}`} data-reveal>
+            {a.offers.map(([t, d]) => (
+              <li class={`border-b py-6 ${dark ? 'border-cobalt' : 'border-line'}`}>
+                <h3 class="text-2xl font-bold">{t}</h3>
+                <p class={`mt-2 text-sm leading-relaxed ${dark ? 'text-lavender' : 'opacity-80'}`}>{d}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="bg-paper-2 text-ink">
+    <div class="container-x py-20">
+      <span class="eyebrow text-cobalt">Enlaces útiles</span>
+      <h2 class="display mt-3 text-[clamp(28px,3.5vw,48px)]">Lo que usamos para construir_</h2>
+      <div class="mt-8 grid gap-x-12 md:grid-cols-2">
+        {cats.map((c) => (
+          <div class="border-t border-line py-6" data-reveal>
+            <span class="mono text-cobalt">{c}</span>
+            <ul class="mt-3">
+              {site.resources.filter((r) => r.cat === c).map((r) => (
+                <li class="border-b border-line py-3"><a href={r.url} class="group block"><span class="text-lg font-bold group-hover:underline">{r.title} <span class="font-mono text-cobalt">→</span></span><span class="block text-sm opacity-70">{r.desc}</span></a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
-    ))}
+    </div>
   </section>
 </Base>

@@ -26,20 +26,46 @@ const stats = [['3.000', 'Estudiantes alcanzados por curso', 3000], ['3.000', 'S
     </ul>
   </section>
 
+
+  <section class="bg-paper-2 text-ink"><div class="container-x py-24">
+    <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
+      <div><span class="eyebrow text-cobalt">Lo que ofrecemos</span><h2 class="display mt-3 text-[clamp(32px,4.5vw,64px)] text-cobalt">Más que un logo en un cartel_</h2></div>
+      <a href="#contacto" class="btn btn-primary">Hablar con Partnerships <span class="font-mono">→</span></a>
+    </div>
+    <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+        ['01', 'Talento', '[COPY] Acceso a starters y asistentes: prácticas, cofundadores y primeras contrataciones. La gente que va a construir, antes de que esté en LinkedIn.'],
+        ['02', 'Marca en campus', '[COPY] Tu marca en todos los eventos, en la cartelería del campus y en las redes de Start (IG, TikTok, LinkedIn, YouTube).'],
+        ['03', 'Contenido', '[COPY] Un episodio de StartTheWeek con tu equipo y crónicas de tus eventos en el blog de Start.'],
+        ['04', 'Datos', '[COPY] Perfiles y feedback de los asistentes que lo autoricen, para saber quién vino y qué le interesó.'],
+      ].map(([n, t, d]) => (
+        <li class="flex flex-col rounded-brand bg-paper p-8" data-reveal>
+          <span class="mono text-cobalt">{n}</span>
+          <h3 class="mt-4 text-3xl font-bold">{t}</h3>
+          <p class="mt-3 text-sm leading-relaxed opacity-80">{d}</p>
+        </li>
+      ))}
+    </ul>
+  </div></section>
+
   <section class="bg-navy text-white"><div class="container-x py-24">
     <span class="eyebrow text-lavender">Tiers</span>
     <h2 class="display mt-3 text-[clamp(32px,5vw,72px)]">Partner fijo o por evento_</h2>
     <p class="mt-4 max-w-xl text-lavender">Un partner fijo está dentro de Start todo el curso; el patrocinio de evento es puntual. Se pueden combinar.</p>
-    <div class="mt-12 grid gap-6 md:grid-cols-3">
-      {site.tiers.map((t, i) => (
-        <div class={`flex flex-col rounded-brand border p-8 ${i === 0 ? 'border-white bg-cobalt' : 'border-cobalt'}`} data-reveal>
-          <span class="eyebrow text-lavender">{t.tag}</span>
-          <h3 class="mt-3 text-3xl font-bold">{t.name}</h3>
-          <p class="mt-2 text-lavender">{t.desc}</p>
-          <ul class="mt-6 flex flex-col gap-2 border-t border-white/20 pt-6 text-sm">{t.perks.map((p) => <li class="flex gap-2"><span class="font-mono text-lavender">_</span>{p}</li>)}</ul>
-          <a href="#contacto" class="btn btn-on-blue mt-auto pt-4 self-start mt-8">Me interesa</a>
-        </div>
-      ))}
+    <div class="mt-12 grid gap-6 md:grid-cols-[1.4fr_1fr_1fr] md:items-start">
+      {site.tiers.map((t, i) => {
+        const hero = i === 0;
+        return (
+          <div class={`relative flex flex-col rounded-brand border ${hero ? 'border-2 border-white bg-cobalt p-10 md:p-12' : 'border-cobalt p-8 opacity-90'}`} data-reveal>
+            {hero && <span class="mono absolute right-6 top-6 rounded-full bg-white px-3 py-1 text-cobalt">Recomendado</span>}
+            <span class="eyebrow text-lavender">{t.tag}</span>
+            <h3 class={`mt-3 font-bold ${hero ? 'text-5xl md:text-6xl' : 'text-3xl'}`}>{t.name}</h3>
+            <p class={`mt-3 text-lavender ${hero ? 'text-lg' : ''}`}>{t.desc}</p>
+            <ul class={`mt-6 flex flex-col gap-2 border-t border-white/20 pt-6 ${hero ? 'text-base' : 'text-sm'}`}>{t.perks.map((p) => <li class="flex gap-2"><span class="font-mono text-lavender">_</span>{p}</li>)}</ul>
+            <a href="#contacto" class={`btn mt-8 self-start ${hero ? 'btn-on-blue' : 'btn-outline text-white'}`}>{hero ? 'Quiero ser partner' : 'Me interesa'} <span class="font-mono">→</span></a>
+          </div>
+        );
+      })}
     </div>
     <p class="eyebrow mt-8 text-lavender/70">Importes orientativos bajo petición · adaptamos cada colaboración</p>
   </div></section>

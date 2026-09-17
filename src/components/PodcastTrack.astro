@@ -1,29 +1,26 @@
 ---
-// Podcast: pista horizontal pineada que avanza con el scroll (ver lib/motion.ts).
-// Cada tarjeta es un vídeo de YouTube: portada + play; al pulsar carga el iframe.
-// `youtubeId` en el frontmatter del episodio; sin él, el play lleva al canal.
+// Podcast StartTheWeek: pista horizontal pineada que avanza con el scroll (ver lib/motion.ts).
+// Cada tarjeta es un vídeo de YouTube real: carátula del canal + play; al pulsar carga el iframe.
 import { getCollection } from 'astro:content';
 import { site } from '../lib/site';
-import { asset } from '../lib/url';
-const eps = (await getCollection('podcast')).sort((a, b) => b.data.episode - a.data.episode);
-const covers = ['/media/starter.jpg', '/media/location.jpg', '/media/equipo/clemente_cebrian.jpeg', '/media/equipo/ivan_bayona.jpg', '/media/equipo/joaquin_wu_ling.jpg'];
+const eps = (await getCollection('podcast')).sort((a, b) => b.data.episode - a.data.episode).slice(0, 8);
 ---
-<section data-podcast-pin class="relative h-screen overflow-hidden bg-navy text-white">
-  <div class="container-x flex items-end justify-between gap-6 pt-14">
+<section data-podcast-pin class="relative flex h-screen flex-col justify-center overflow-hidden bg-navy pt-[72px] text-white">
+  <div class="container-x flex items-end justify-between gap-6">
     <div>
-      <span class="eyebrow text-lavender">Podcast · Start_Talks</span>
+      <span class="eyebrow text-lavender">Podcast · StartTheWeek</span>
       <h2 class="display mt-3 text-[clamp(36px,6vw,84px)]" data-split>Conversaciones con gente que construye</h2>
     </div>
     <a href="/podcast" class="btn btn-on-blue hidden md:inline-flex">Todos los episodios <span class="font-mono">→</span></a>
   </div>
   <div data-podcast-track class="mt-10 flex items-stretch gap-8 pl-4 md:pl-16 will-change-transform">
-    {eps.map((e, i) => {
+    {eps.map((e) => {
       const id = e.data.youtubeId;
       return (
       <article class="relative flex w-[82vw] shrink-0 flex-col md:w-[640px]">
         <span data-ep-number class="display pointer-events-none absolute -top-10 right-2 z-0 select-none text-[140px] leading-none text-cobalt/60 md:text-[200px]">{String(e.data.episode).padStart(2, '0')}</span>
         <div class="group relative z-10 aspect-video overflow-hidden rounded-brand bg-cobalt-deep" data-video={id ?? ''}>
-          <img src={asset(covers[i % covers.length])} alt="" class="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+          {e.data.cover && <img src={e.data.cover} alt="" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />}
           <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent"></div>
           {id ? (
             <button data-play class="absolute left-1/2 top-1/2 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-2xl text-cobalt transition-transform hover:scale-110" aria-label={`Reproducir episodio ${e.data.episode}`}>▶</button>
@@ -31,12 +28,12 @@ const covers = ['/media/starter.jpg', '/media/location.jpg', '/media/equipo/clem
             <a href={e.data.youtube ?? site.social.youtube} class="absolute left-1/2 top-1/2 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-2xl text-cobalt transition-transform hover:scale-110" aria-label="Ver en YouTube">▶</a>
           )}
           <div class="absolute inset-x-0 bottom-0 p-6">
-            <span class="eyebrow text-lavender">EP {String(e.data.episode).padStart(2, '0')} · {e.data.duration}</span>
+            <span class="eyebrow text-lavender">{e.data.role}</span>
             <h3 class="display mt-2 text-[clamp(22px,2.4vw,34px)] tracking-[-0.02em]">{e.data.title}</h3>
           </div>
         </div>
         <div class="relative z-10 mt-4 flex items-center justify-between">
-          <p class="text-lg font-semibold">{e.data.guest} <span class="font-normal text-lavender">· {e.data.role}</span></p>
+          <p class="text-lg font-semibold">{e.data.guest}</p>
           <a href={`/podcast#${e.id}`} class="mono text-lavender hover:text-white">Ficha →</a>
         </div>
       </article>
@@ -50,7 +47,7 @@ const covers = ['/media/starter.jpg', '/media/location.jpg', '/media/equipo/clem
   document.querySelectorAll<HTMLElement>('[data-video]').forEach((box) => {
     const id = box.dataset.video; if (!id) return;
     box.querySelector('[data-play]')?.addEventListener('click', () => {
-      box.innerHTML = `<iframe class="absolute inset-0 h-full w-full" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="Podcast Start UC3M" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      box.innerHTML = `<iframe class="absolute inset-0 h-full w-full" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="StartTheWeek · Start UC3M" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
     });
   });
 </script>

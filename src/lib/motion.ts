@@ -45,7 +45,7 @@ export function initMotion() {
     const distance = () => track.scrollWidth - window.innerWidth + 64;
     gsap.to(track, {
       x: () => -distance(), ease: 'none',
-      scrollTrigger: { trigger: pin, start: 'top top', end: () => `+=${distance()}`, pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1 },
+      scrollTrigger: { trigger: pin, start: 'top top', end: () => `+=${distance()}`, pin: true, pinSpacing: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1 },
     });
     track.querySelectorAll<HTMLElement>('[data-ep-number]').forEach((n) => {
       gsap.to(n, { xPercent: -40, ease: 'none', scrollTrigger: { trigger: pin, start: 'top top', end: () => `+=${distance()}`, scrub: true } });
@@ -57,10 +57,6 @@ export function initMotion() {
     const amount = Number(el.dataset.parallax || 12);
     gsap.fromTo(el, { yPercent: -amount }, { yPercent: amount, ease: 'none', scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
   });
-
-  // Marcador de progreso del scroll en la nav
-  const bar = document.querySelector<HTMLElement>('[data-progress]');
-  if (bar) gsap.to(bar, { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
 
   // Contadores
   document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
