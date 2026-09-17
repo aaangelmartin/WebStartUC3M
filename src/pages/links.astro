@@ -4,8 +4,13 @@ import '../styles/global.css';
 import Logo from '../components/Logo.astro';
 import { site } from '../lib/site';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const siteOrigin = Astro.site?.origin ?? 'https://www.startuc3m.es';
+const ogImage = `${siteOrigin}${base}/brand/logo-full-cobalt.png`;
 ---
 <!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Links | Start UC3M</title><meta name="theme-color" content="#2b3a91" />
+<meta name="description" content="Todos los enlaces de Start UC3M: próximo evento, únete, podcast, patrocina, blog y redes." />
+<meta property="og:title" content="Start UC3M · Links" /><meta property="og:description" content="Próximo evento, únete a Start, podcast, patrocina y redes, todo en un sitio." /><meta property="og:image" content={ogImage} /><meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" /><meta name="twitter:image" content={ogImage} />
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet" /></head>
 <body class="bg-cobalt text-white">
   <main class="mx-auto flex min-h-screen max-w-md flex-col px-5 py-12">
